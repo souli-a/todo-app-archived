@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import * as Form from '@radix-ui/react-form';
-import { colors } from './Colors.jsx';
+import colors from './Colors';
 import * as Checkbox from '@radix-ui/react-checkbox';
 
 const Div = styled.div`

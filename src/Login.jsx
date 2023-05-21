@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import * as Form from '@radix-ui/react-form';
-import { colors } from './Colors.jsx';
+import colors from './Colors.jsx';
 
 const Div = styled.div`
   height: 100%;
