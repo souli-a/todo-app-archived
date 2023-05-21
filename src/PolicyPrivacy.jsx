@@ -31,7 +31,7 @@ const Div = styled.div`
     }
     & > ul > li {
       font-size: 1.6rem;
-      margin: 0.2rem;
+      margin: 0.5rem;
       padding: 0;
     }
     & > ul {
