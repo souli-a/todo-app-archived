@@ -28,10 +28,10 @@ const FormRoot = styled(Form.Root)`
   font-weight: 300;
   border-radius: 0.7rem;
   & > *:not(:nth-last-child(2)) {
-    margin-bottom: 3rem;
+    margin: 0 0 3rem 0;
   }
   & > :last-child {
-    margin-top: 2rem;
+    margin: 2rem 0 0 0;
   }
 `;
 
@@ -106,6 +106,7 @@ const CheckboxIndicator = styled(Checkbox.Indicator)`
 `;
 
 const A = styled.a`
+  font-size: 1.3rem;
   color: ${colors.blue1};
   text-decoration: none;
   transition: all 0.2s ease-in-out;
@@ -115,6 +116,11 @@ const A = styled.a`
   &:active {
     color: ${colors.blue5};
   }
+`;
+
+const P = styled.p`
+  font-size: 1.3rem;
+  color: ${colors.black};
 `;
 
 const Button = styled.button`
@@ -180,6 +186,9 @@ const SignUp = () => {
           <Button>S'inscrire</Button>
         </Form.Submit>
       </FormRoot>
+      <P>
+        Déjà inscrit? <A href="https://google.fr">Connectez-vous</A>
+      </P>
     </Div>
   );
 };
