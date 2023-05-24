@@ -13,6 +13,23 @@ const themes = {
     formLabel: '1.7rem',
     formLabelTerms: '1.35rem',
     bigButton: '1.9rem',
+    todoInput: '1.8rem',
+    paragraphTodoCheckboxRoot: '1.8rem',
+  },
+  overflow: {
+    paragraphTodoCheckboxRoot: 'hidden',
+  },
+  whiteSpace: {
+    paragraphTodoCheckboxRoot: 'nowrap',
+  },
+  textOverflow: {
+    paragraphTodoCheckboxRoot: 'ellipsis',
+  },
+  textDecorationLine: {
+    paragraphTodoCheckboxRootChecked: 'line-through',
+  },
+  textDecorationThickness: {
+    paragraphTodoCheckboxRootChecked: '0.2rem',
   },
   border: {
     none: '0rem',
@@ -23,11 +40,14 @@ const themes = {
     formRoot: '0.7rem',
     checkboxRoot: '0.7rem',
     checkboxIndicator: '0.4rem',
+    todoCheckboxRoot: '0.7rem',
   },
   padding: {
     button: '1.15rem 1.5rem',
     bigButton: '1.8rem 1.5rem',
     input: '0.9rem 1.5rem',
+    todoInput: '0 1.5rem 0 1.5rem',
+    todoCheckboxRoot: '0 1.5rem 0 1.5rem',
   },
   outline: {
     input: 'none',
@@ -46,11 +66,15 @@ const themes = {
     formRoot: '37rem',
     checkboxRoot: '3rem',
     checkboxIndicator: '1.8rem',
+    todoInput: '100%',
+    todoCheckboxRoot: '99%',
   },
   height: {
     checkboxRoot: '3rem',
     checkboxIndicator: '1.8rem',
     formFieldTerms: '3rem',
+    todoInput: '6rem',
+    todoCheckboxRoot: '5rem',
   },
   cursor: {
     button: 'pointer',
@@ -83,6 +107,7 @@ const themes = {
     checkboxRoot: 'flex',
     formField: 'flex',
     formFieldTerms: 'flex',
+    todoCheckboxRoot: 'flex',
   },
   justifyContent: {
     checkboxRoot: 'center',
@@ -90,6 +115,7 @@ const themes = {
   alignItems: {
     checkboxRoot: 'center',
     formFieldTerms: 'center',
+    todoCheckboxRoot: 'center',
   },
   flexDirection: {
     formRoot: 'column',
@@ -99,6 +125,7 @@ const themes = {
     button: '0 0 0 0.2rem',
     input: '0 0 0 0.2rem',
     checkboxRoot: '0 0 0 0.2rem',
+    todoCheckboxRoot: '0 0 0 0.2rem',
   },
   lineHeight: {
     title1: '7rem',
@@ -136,6 +163,8 @@ const themes = {
       'background-color .15s ease-in-out, box-shadow .15s ease-in-out',
     checkboxIndicator:
       'background-color .15s ease-in-out, color .15s ease-in-out',
+    todoCheckboxRoot:
+      'background-color .15s ease-in-out, color .15s ease-in-out, box-shadow .15s ease-in-out',
   },
   colors: {
     white: colors.white,
@@ -193,6 +222,20 @@ const themes = {
     formLabelTerms: colors.grey6,
 
     bold: colors.pureBlack,
+
+    todoCheckboxRootBg: colors.none,
+    todoCheckboxRootBgHover: colors.grey1,
+    todoCheckboxRootBgActive: colors.grey2,
+
+    todoCheckboxRootBorder: colors.grey1,
+    todoCheckboxRootBorderActive: colors.grey1,
+
+    todoCheckboxRootBgChecked: colors.grey1,
+    todoCheckboxRootBgCheckedHover: colors.grey2,
+    todoCheckboxRootBgCheckedActive: colors.grey3,
+    todoCheckboxRootBorderCheckedActive: colors.grey2,
+
+    paragraphTodoCheckboxRootChecked: colors.grey5,
   },
 };
 

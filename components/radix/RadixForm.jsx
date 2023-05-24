@@ -81,6 +81,56 @@ const StyledCheckboxRoot = styled(Checkbox.Root)`
   }
 `;
 
+const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
+  width: ${themes.width.todoCheckboxRoot};
+  height: ${themes.height.todoCheckboxRoot};
+
+  border-radius: ${themes.borderRadius.todoCheckboxRoot};
+
+  display: ${themes.display.todoCheckboxRoot};
+  align-items: ${themes.alignItems.todoCheckboxRoot};
+
+  padding: ${themes.padding.todoCheckboxRoot};
+
+  background-color: ${themes.colors.todoCheckboxRootBg};
+
+  box-shadow: ${themes.boxShadow.todoCheckboxRoot}
+    ${themes.colors.todoCheckboxRootBorder};
+  transition: ${themes.transition.todoCheckboxRoot};
+  p {
+    font-size: ${themes.fontSize.paragraphTodoCheckboxRoot};
+    overflow: ${themes.overflow.paragraphTodoCheckboxRoot};
+    white-space: ${themes.whiteSpace.paragraphTodoCheckboxRoot};
+    text-overflow: ${themes.textOverflow.paragraphTodoCheckboxRoot};
+  }
+  &:hover {
+    background-color: ${themes.colors.todoCheckboxRootBgHover};
+  }
+  &:active {
+    background-color: ${themes.colors.todoCheckboxRootBgActive};
+    box-shadow: ${themes.boxShadow.todoCheckboxRoot}
+      ${themes.colors.todoCheckboxRootBorderActive};
+  }
+  &[data-state='checked'] {
+    background-color: ${themes.colors.todoCheckboxRootBgChecked};
+    p {
+      text-decoration-line: ${themes.textDecorationLine
+    .paragraphTodoCheckboxRootChecked};
+      color: ${themes.colors.paragraphTodoCheckboxRootChecked};
+      text-decoration-thickness: ${themes.textDecorationThickness
+    .paragraphTodoCheckboxRootChecked};
+    }
+    &:hover {
+      background-color: ${themes.colors.todoCheckboxRootBgCheckedHover};
+    }
+    &:active {
+      background-color: ${themes.colors.todoCheckboxRootBgCheckedActive};
+      box-shadow: ${themes.boxShadow.todoCheckboxRoot}
+        ${themes.colors.todoCheckboxRootBorderCheckedActive};
+    }
+  }
+`;
+
 const StyledCheckboxIndicator = styled(Checkbox.Indicator)`
   background-color: ${themes.colors.checkboxIndicatorBg};
   color: ${themes.colors.checkboxIndicator};
@@ -89,6 +139,8 @@ const StyledCheckboxIndicator = styled(Checkbox.Indicator)`
   border-radius: ${themes.borderRadius.checkboxIndicator};
   transition: ${themes.transition.checkboxIndicator};
 `;
+
+const StyledTodoCheckboxIndicator = styled(Checkbox.Indicator)``;
 
 const FormRoot = ({ children }) => {
   return (
@@ -146,10 +198,26 @@ const CheckboxRoot = ({ children }) => {
   );
 };
 
+const TodoCheckboxRoot = ({ children }) => {
+  return (
+    <>
+      <StyledTodoCheckboxRoot>{children}</StyledTodoCheckboxRoot>
+    </>
+  );
+};
+
 const CheckboxIndicator = ({ children }) => {
   return (
     <>
       <StyledCheckboxIndicator>{children}</StyledCheckboxIndicator>
+    </>
+  );
+};
+
+const TodoCheckboxIndicator = ({ children }) => {
+  return (
+    <>
+      <StyledTodoCheckboxIndicator>{children}</StyledTodoCheckboxIndicator>
     </>
   );
 };
@@ -170,6 +238,8 @@ export {
   FormLabelTerms,
   FormControl,
   CheckboxRoot,
+  TodoCheckboxRoot,
   CheckboxIndicator,
+  TodoCheckboxIndicator,
   FormSubmit,
 };

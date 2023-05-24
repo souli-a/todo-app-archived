@@ -41,7 +41,7 @@ const Home = () => {
           <Title2>
             Une case à <Bold>cocher</Bold>.
           </Title2>
-          <BigBlueButton>S'inscrire</BigBlueButton>
+          <BigBlueButton as="a">S'inscrire</BigBlueButton>
         </ChildDivision2>
       </ChildDivision1>
       <Footer />

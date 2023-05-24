@@ -6,7 +6,6 @@ const InputStyled = styled.input`
   border-radius: ${themes.borderRadius.input};
   background-color: ${themes.colors.inputBg};
   padding: ${themes.padding.input};
-  outline: ${themes.outline.input};
   transition: ${themes.transition.input};
   &::placeholder {
     color: ${themes.colors.inputPlaceholder};
@@ -24,6 +23,13 @@ const InputStyled = styled.input`
   }
 `;
 
+const TodoInputStyled = styled(InputStyled)`
+  font-size: ${themes.fontSize.todoInput};
+  width: ${themes.width.todoInput};
+  height: ${themes.height.todoInput};
+  padding: ${themes.padding.todoInput};
+`;
+
 const Input = ({ placeholder }) => {
   return (
     <>
@@ -32,4 +38,12 @@ const Input = ({ placeholder }) => {
   );
 };
 
-export default Input;
+const TodoInput = ({ placeholder }) => {
+  return (
+    <>
+      <TodoInputStyled placeholder={placeholder} />
+    </>
+  );
+};
+
+export { Input, TodoInput };

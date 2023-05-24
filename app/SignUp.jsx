@@ -12,7 +12,7 @@ import {
 } from '../components/radix/RadixForm';
 import { Title2 } from '../components/ui/Title';
 import { BigBlueButton } from '../components/ui/Button';
-import Input from '../components/ui/Input';
+import { Input } from '../components/ui/Input';
 import Link from '../components/ui/Link';
 
 const Division = styled.div`

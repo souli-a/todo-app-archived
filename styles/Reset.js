@@ -55,6 +55,7 @@ button {
 
 input {
   box-sizing: border-box;
+  outline: none;
 }
 
 a {
