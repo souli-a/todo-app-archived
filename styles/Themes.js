@@ -122,6 +122,11 @@ const themes = {
   marginBottom: {
     formRootNotLastChild: '3rem',
   },
+  marginLeft: {
+    title1: '-0.3rem',
+    title2: '-0.3rem',
+    title3: '-0.3rem',
+  },
   transition: {
     button:
       'box-shadow .15s ease-in-out, border .15s ease-in-out, background-color .15s ease-in-out, color .15s ease-in-out',
@@ -188,6 +193,8 @@ const themes = {
     checkboxIndicator: colors.green5,
 
     formLabelTerms: colors.grey6,
+
+    bold: colors.pureBlack,
   },
 };
 

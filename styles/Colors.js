@@ -1,8 +1,11 @@
 const colors = {
   none: 'transparent',
 
+  pureBlack: '#000000',
+  pureWhite: '#FFFFFF',
+
   black: '#303030',
-  white: '#f3f3f3',
+  white: '#FDFDFD',
 
   red1: '#FF9999',
   red2: '#FF8585',
