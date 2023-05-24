@@ -45,11 +45,11 @@ const themes = {
     image: '4rem',
     formRoot: '37rem',
     checkboxRoot: '3rem',
-    checkboxIndicator: '2rem',
+    checkboxIndicator: '1.8rem',
   },
   height: {
     checkboxRoot: '3rem',
-    checkboxIndicator: '2rem',
+    checkboxIndicator: '1.8rem',
     formFieldTerms: '3rem',
   },
   cursor: {
@@ -72,8 +72,8 @@ const themes = {
     orderedList: 'circle',
   },
   listStyle: {
-    unorderedList: 'outside',
-    orderedList: 'outside',
+    unorderedList: 'inside',
+    orderedList: 'inside',
   },
   textDecoration: {
     link: 'underline',
@@ -109,21 +109,19 @@ const themes = {
     formLabelTerms: '1.7rem',
   },
   margin: {
-    paragraph: '1rem 0 1rem 0',
-    listItem: '0 0 0rem 0.5rem',
-    checkboxRoot: '0 0.7rem 0 0',
+    checkboxRoot: '0 1.4rem 0 0',
     formField: '0rem',
     formLabel: '0 0 1.3rem 0',
     formFieldTerms: '0 0 -1.7rem 0',
   },
   marginTop: {
-    formRootLastChild: '3.4rem',
+    formRootLastChild: '3.8rem',
   },
   marginBottom: {
     formRootNotLastChild: '3rem',
   },
   marginLeft: {
-    title1: '-0.3rem',
+    title1: '-0.6rem',
     title2: '-0.3rem',
     title3: '-0.3rem',
   },

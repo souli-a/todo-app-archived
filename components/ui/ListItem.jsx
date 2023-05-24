@@ -6,7 +6,6 @@ const StyledListItem = styled.li`
   color: ${themes.colors.black};
   letter-spacing: ${themes.letterSpacing.listItem};
   line-height: ${themes.lineHeight.listItem};
-  margin: ${themes.margin.listItem};
 `;
 
 const ListItem = ({ children }) => {

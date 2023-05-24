@@ -11,14 +11,14 @@ const ParentDivision = styled.div`
   flex-direction: column;
 `;
 
-const Division = styled.div`
+const ChildDivision1 = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   align-content: center;
 `;
 
-const Division2 = styled.div`
+const ChildDivision2 = styled.div`
   display: flex;
   flex-direction: column;
   margin: 20rem 0 40rem 0;
@@ -33,8 +33,8 @@ const Home = () => {
   return (
     <ParentDivision>
       <Header />
-      <Division>
-        <Division2>
+      <ChildDivision1>
+        <ChildDivision2>
           <Title1>
             Une chose à <Bold>faire</Bold>,
           </Title1>
@@ -42,8 +42,8 @@ const Home = () => {
             Une case à <Bold>cocher</Bold>.
           </Title2>
           <BigBlueButton>S'inscrire</BigBlueButton>
-        </Division2>
-      </Division>
+        </ChildDivision2>
+      </ChildDivision1>
       <Footer />
     </ParentDivision>
   );
