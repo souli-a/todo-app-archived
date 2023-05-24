@@ -18,21 +18,23 @@ const Division = styled.div`
 
 const Header = () => {
   return (
-    <Division>
-      <Logo
-        src="../assets/logo.png"
-        href="https://google.fr"
-        alt="logo du site web"
-      />
-      <Division className="right-header">
-        <TransparentButton as="a" href="/login">
-          Connexion
-        </TransparentButton>
-        <BlueButton as="a" href="/signup">
-          S'inscrire
-        </BlueButton>
+    <header>
+      <Division>
+        <Logo
+          src="../assets/logo.png"
+          href="https://google.fr"
+          alt="logo du site web"
+        />
+        <Division className="right-header">
+          <TransparentButton as="a" href="/login">
+            Connexion
+          </TransparentButton>
+          <BlueButton as="a" href="/signup">
+            S'inscrire
+          </BlueButton>
+        </Division>
       </Division>
-    </Division>
+    </header>
   );
 };
 

@@ -22,6 +22,7 @@ import Paragraph from '../components/ui/Paragraph';
 import Logo from '../components/ui/Logo';
 
 import Header from './Header';
+import Footer from './Footer';
 import TermsAndConditions from './TermsAndConditions';
 import PolicyPrivacy from './PolicyPrivacy';
 import SignUp from './SignUp';
@@ -30,6 +31,5 @@ import Login from './Login';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Reset />
-    <Login />
   </React.StrictMode>
 );
