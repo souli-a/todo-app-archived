@@ -25,6 +25,7 @@ const BlueButtonStyled = styled.button`
 
 const BigBlueButtonStyled = styled(BlueButtonStyled)`
   padding: ${themes.padding.bigButton};
+  font-size: ${themes.fontSize.bigButton};
 `;
 
 const TransparentButtonStyled = styled(BlueButtonStyled)`
@@ -55,6 +56,11 @@ const GreenButtonStyled = styled(BlueButtonStyled)`
   &:focus {
     box-shadow: ${themes.boxShadow.button} ${themes.colors.greenBorder};
   }
+`;
+
+const BigGreenButtonStyled = styled(GreenButtonStyled)`
+  padding: ${themes.padding.bigButton};
+  font-size: ${themes.fontSize.bigButton};
 `;
 
 const RedButtonStyled = styled(BlueButtonStyled)`
@@ -126,6 +132,16 @@ const GreenButton = ({ as, href, children }) => {
   );
 };
 
+const BigGreenButton = ({ as, href, children }) => {
+  return (
+    <>
+      <BigGreenButtonStyled as={as} href={href}>
+        {children}
+      </BigGreenButtonStyled>
+    </>
+  );
+};
+
 const RedButton = ({ as, href, children }) => {
   return (
     <>
@@ -151,6 +167,7 @@ export {
   BigBlueButton,
   TransparentButton,
   GreenButton,
+  BigGreenButton,
   RedButton,
   GreyButton,
 };

@@ -6,7 +6,6 @@ const StyledTitle1 = styled.h1`
   color: ${themes.colors.black};
   letter-spacing: ${themes.letterSpacing.title1};
   line-height: ${themes.lineHeight.title1};
-  margin: ${themes.margin.title1};
   font-weight: ${themes.fontWeight.title1};
 `;
 
@@ -15,7 +14,6 @@ const StyledTitle2 = styled.h2`
   color: ${themes.colors.black};
   letter-spacing: ${themes.letterSpacing.title2};
   line-height: ${themes.lineHeight.title2};
-  margin: ${themes.margin.title2};
   font-weight: ${themes.fontWeight.title2};
 `;
 
@@ -24,7 +22,6 @@ const StyledTitle3 = styled.h3`
   color: ${themes.colors.black};
   letter-spacing: ${themes.letterSpacing.title3};
   line-height: ${themes.lineHeight.title3};
-  margin: ${themes.margin.title3};
   font-weight: ${themes.fontWeight.title3};
 `;
 

@@ -21,15 +21,15 @@ import { Title1, Title2, Title3 } from '../components/ui/Title';
 import Paragraph from '../components/ui/Paragraph';
 import Logo from '../components/ui/Logo';
 
-import Header from './Header';
-import Footer from './Footer';
 import TermsAndConditions from './TermsAndConditions';
 import PolicyPrivacy from './PolicyPrivacy';
 import SignUp from './SignUp';
 import Login from './Login';
+import Home from './Home';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Reset />
+    <Home />
   </React.StrictMode>
 );

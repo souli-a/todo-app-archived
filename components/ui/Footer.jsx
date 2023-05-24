@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Paragraph from '../components/ui/Paragraph';
-import Link from '../components/ui/Link';
+import Paragraph from './Paragraph';
+import Link from './Link';
 
 const Division = styled.div`
   height: fit-content;

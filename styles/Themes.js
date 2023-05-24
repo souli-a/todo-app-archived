@@ -12,6 +12,7 @@ const themes = {
     listItem: '1.6rem',
     formLabel: '1.7rem',
     formLabelTerms: '1.35rem',
+    bigButton: '1.9rem',
   },
   border: {
     none: '0rem',
@@ -35,9 +36,10 @@ const themes = {
     button: '600',
     formRoot: '400',
     formLabel: '400',
-    title1: '500',
-    title2: '500',
-    title3: '500',
+    title1: '400',
+    title2: '400',
+    title3: '400',
+    bold: '800',
   },
   width: {
     image: '4rem',
@@ -107,9 +109,6 @@ const themes = {
     formLabelTerms: '1.7rem',
   },
   margin: {
-    title1: '0rem 0 2rem -0.2rem',
-    title2: '2rem 0 2rem -0.2rem',
-    title3: '0rem 0 2rem -0.2rem',
     paragraph: '1rem 0 1rem 0',
     listItem: '0 0 0rem 0.5rem',
     checkboxRoot: '0 0.7rem 0 0',

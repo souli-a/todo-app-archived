@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { TransparentButton, BlueButton } from '../components/ui/Button';
-import Logo from '../components/ui/Logo';
+import { TransparentButton, BlueButton } from './Button';
+import Logo from './Logo';
 
 const Division = styled.div`
   height: fit-content;
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 1rem 15rem 2rem 15rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
