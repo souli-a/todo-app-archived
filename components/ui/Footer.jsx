@@ -19,14 +19,12 @@ const Division = styled.div`
 const Footer = () => {
   return (
     <footer>
-      <Division className="separator">
-        <Division>
-          <Paragraph>Listify © 2023</Paragraph>
-          <span>·</span>
-          <Link>Confidentialité</Link>
-          <span>·</span>
-          <Link>Conditions générales</Link>
-        </Division>
+      <Division>
+        <Paragraph>Listify © 2023</Paragraph>
+        <span>·</span>
+        <Link>Confidentialité</Link>
+        <span>·</span>
+        <Link>Conditions générales</Link>
       </Division>
     </footer>
   );

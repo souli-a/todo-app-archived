@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import themes from '../../styles/Themes';
 
-const BlueButtonStyled = styled.button`
+const StyledBlueButton = styled.button`
   font-size: ${themes.fontSize.button};
   background-color: ${themes.colors.blueBg};
   color: ${themes.colors.white};
@@ -23,12 +23,12 @@ const BlueButtonStyled = styled.button`
   }
 `;
 
-const BigBlueButtonStyled = styled(BlueButtonStyled)`
+const StyledBigBlueButton = styled(StyledBlueButton)`
   padding: ${themes.padding.bigButton};
   font-size: ${themes.fontSize.bigButton};
 `;
 
-const TransparentButtonStyled = styled(BlueButtonStyled)`
+const StyledTransparentButton = styled(StyledBlueButton)`
   background-color: ${themes.colors.none};
   color: ${themes.colors.black};
   &:hover {
@@ -43,7 +43,7 @@ const TransparentButtonStyled = styled(BlueButtonStyled)`
   }
 `;
 
-const GreenButtonStyled = styled(BlueButtonStyled)`
+const StyledGreenButton = styled(StyledBlueButton)`
   background-color: ${themes.colors.greenBg};
   color: ${themes.colors.white};
   &:hover {
@@ -58,12 +58,12 @@ const GreenButtonStyled = styled(BlueButtonStyled)`
   }
 `;
 
-const BigGreenButtonStyled = styled(GreenButtonStyled)`
+const StyledBigGreenButton = styled(StyledGreenButton)`
   padding: ${themes.padding.bigButton};
   font-size: ${themes.fontSize.bigButton};
 `;
 
-const RedButtonStyled = styled(BlueButtonStyled)`
+const StyledRedButton = styled(StyledBlueButton)`
   background-color: ${themes.colors.redBg};
   &:hover {
     background-color: ${themes.colors.redHover};
@@ -77,7 +77,7 @@ const RedButtonStyled = styled(BlueButtonStyled)`
   }
 `;
 
-const GreyButtonStyled = styled(BlueButtonStyled)`
+const StyledGreyButton = styled(StyledBlueButton)`
   background-color: ${themes.colors.greyBg};
   color: ${themes.colors.black};
   &:hover {
@@ -92,12 +92,26 @@ const GreyButtonStyled = styled(BlueButtonStyled)`
   }
 `;
 
+const StyledPasswordButton = styled(StyledGreyButton)`
+  height: ${themes.height.passwordButton};
+  display: ${themes.display.passwordButton};
+  justify-content: ${themes.justifyContent.passwordButton};
+  align-items: ${themes.alignItems.passwordButton};
+  border-radius: ${themes.borderRadius.passwordButton};
+  box-shadow: ${themes.boxShadow.passwordButton};
+  width: ${themes.width.passwordButton};
+  &:active,
+  &:focus {
+    box-shadow: ${themes.boxShadow.passwordButtonActive};
+  }
+`;
+
 const BlueButton = ({ as, href, children }) => {
   return (
     <>
-      <BlueButtonStyled as={as} href={href}>
+      <StyledBlueButton as={as} href={href}>
         {children}
-      </BlueButtonStyled>
+      </StyledBlueButton>
     </>
   );
 };
@@ -105,9 +119,9 @@ const BlueButton = ({ as, href, children }) => {
 const BigBlueButton = ({ as, href, children }) => {
   return (
     <>
-      <BigBlueButtonStyled as={as} href={href}>
+      <StyledBigBlueButton as={as} href={href}>
         {children}
-      </BigBlueButtonStyled>
+      </StyledBigBlueButton>
     </>
   );
 };
@@ -115,9 +129,9 @@ const BigBlueButton = ({ as, href, children }) => {
 const TransparentButton = ({ as, href, children }) => {
   return (
     <>
-      <TransparentButtonStyled as={as} href={href}>
+      <StyledTransparentButton as={as} href={href}>
         {children}
-      </TransparentButtonStyled>
+      </StyledTransparentButton>
     </>
   );
 };
@@ -125,9 +139,9 @@ const TransparentButton = ({ as, href, children }) => {
 const GreenButton = ({ as, href, children }) => {
   return (
     <>
-      <GreenButtonStyled as={as} href={href}>
+      <StyledGreenButton as={as} href={href}>
         {children}
-      </GreenButtonStyled>
+      </StyledGreenButton>
     </>
   );
 };
@@ -135,9 +149,9 @@ const GreenButton = ({ as, href, children }) => {
 const BigGreenButton = ({ as, href, children }) => {
   return (
     <>
-      <BigGreenButtonStyled as={as} href={href}>
+      <StyledBigGreenButton as={as} href={href}>
         {children}
-      </BigGreenButtonStyled>
+      </StyledBigGreenButton>
     </>
   );
 };
@@ -145,9 +159,9 @@ const BigGreenButton = ({ as, href, children }) => {
 const RedButton = ({ as, href, children }) => {
   return (
     <>
-      <RedButtonStyled as={as} href={href}>
+      <StyledRedButton as={as} href={href}>
         {children}
-      </RedButtonStyled>
+      </StyledRedButton>
     </>
   );
 };
@@ -155,9 +169,17 @@ const RedButton = ({ as, href, children }) => {
 const GreyButton = ({ as, href, children }) => {
   return (
     <>
-      <GreyButtonStyled as={as} href={href}>
+      <StyledGreyButton as={as} href={href}>
         {children}
-      </GreyButtonStyled>
+      </StyledGreyButton>
+    </>
+  );
+};
+
+const PasswordButton = ({ children, onClick }) => {
+  return (
+    <>
+      <StyledPasswordButton onClick={onClick}>{children}</StyledPasswordButton>
     </>
   );
 };
@@ -170,4 +192,5 @@ export {
   BigGreenButton,
   RedButton,
   GreyButton,
+  PasswordButton,
 };

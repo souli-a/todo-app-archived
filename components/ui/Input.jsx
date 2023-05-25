@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import themes from '../../styles/Themes';
 
-const InputStyled = styled.input`
+const StyledInput = styled.input`
   font-size: ${themes.fontSize.input};
   border-radius: ${themes.borderRadius.input};
   background-color: ${themes.colors.inputBg};
   padding: ${themes.padding.input};
   transition: ${themes.transition.input};
+  height: ${themes.height.input};
+  width: ${themes.width.input};
   &::placeholder {
     color: ${themes.colors.inputPlaceholder};
   }
@@ -23,27 +25,64 @@ const InputStyled = styled.input`
   }
 `;
 
-const TodoInputStyled = styled(InputStyled)`
+const StyledTodoInput = styled(StyledInput)`
   font-size: ${themes.fontSize.todoInput};
   width: ${themes.width.todoInput};
   height: ${themes.height.todoInput};
   padding: ${themes.padding.todoInput};
 `;
 
-const Input = ({ placeholder }) => {
+const StyledPasswordInput = styled(StyledInput)`
+  border-radius: ${themes.borderRadius.passwordInput};
+  height: ${themes.height.input};
+  &:focus + button {
+    box-shadow: ${themes.boxShadow.input} ${themes.colors.inputBg};
+  }
+  &:not(:placeholder-shown) + button {
+    box-shadow: ${themes.boxShadow.input} ${themes.colors.inputBg};
+  }
+`;
+
+const Input = ({ type, placeholder, autocomplete }) => {
   return (
     <>
-      <InputStyled placeholder={placeholder} />
+      <StyledInput
+        type={type}
+        placeholder={placeholder}
+        autoComplete={autocomplete}
+      />
     </>
   );
 };
 
-const TodoInput = ({ placeholder }) => {
+const TodoInput = ({ type, placeholder }) => {
   return (
     <>
-      <TodoInputStyled placeholder={placeholder} />
+      <StyledTodoInput type={type} placeholder={placeholder} />
     </>
   );
 };
 
-export { Input, TodoInput };
+const PasswordInput = ({
+  type,
+  placeholder,
+  onChange,
+  value,
+  name,
+  autoComplete,
+}) => {
+  return (
+    <>
+      <StyledPasswordInput
+        type={type}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+        name={name}
+        autoComplete={autoComplete}
+      />
+    </>
+  );
+};
+
+export { Input, TodoInput, PasswordInput };
