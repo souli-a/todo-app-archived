@@ -3,6 +3,7 @@ import themes from '../../styles/Themes';
 import { Eye, EyeSlash } from '@phosphor-icons/react';
 import { PasswordButton } from './Button';
 import { useState } from 'react';
+import { forwardRef } from 'react';
 
 const StyledPasswordInput = styled.input`
   font-size: ${themes.fontSize.input};
@@ -42,7 +43,7 @@ const PasswordInputParentDivision = styled.div`
   width: 100%;
 `;
 
-const PasswordInput = ({ name, placeholder, autocomplete }) => {
+const PasswordInput = forwardRef(({ name, placeholder, autocomplete }, ref) => {
   const [passwordType, setPasswordType] = useState('password');
   const [passwordInput, setPasswordInput] = useState('');
 
@@ -69,13 +70,13 @@ const PasswordInput = ({ name, placeholder, autocomplete }) => {
       />
       <PasswordButton onClick={togglePassword}>
         {passwordType === 'password' ? (
-          <Eye size={32} weight="regular" />
+          <Eye weight="regular" color={themes.colors.blackIcons} />
         ) : (
-          <EyeSlash size={32} weight="regular" />
+          <EyeSlash weight="regular" color={themes.colors.blackIcons} />
         )}
       </PasswordButton>
     </PasswordInputParentDivision>
   );
-};
+});
 
 export default PasswordInput;

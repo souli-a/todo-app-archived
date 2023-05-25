@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import themes from '../../styles/Themes';
+import { forwardRef } from 'react';
 
 const StyledBlueButton = styled.button`
   font-size: ${themes.fontSize.button};
@@ -93,6 +94,7 @@ const StyledGreyButton = styled(StyledBlueButton)`
 `;
 
 const StyledPasswordButton = styled(StyledGreyButton)`
+  background-color: ${themes.colors.passwordButtonBg};
   height: ${themes.height.passwordButton};
   display: ${themes.display.passwordButton};
   justify-content: ${themes.justifyContent.passwordButton};
@@ -100,6 +102,12 @@ const StyledPasswordButton = styled(StyledGreyButton)`
   border-radius: ${themes.borderRadius.passwordButton};
   box-shadow: ${themes.boxShadow.passwordButton};
   width: ${themes.width.passwordButton};
+  &:hover {
+    background-color: ${themes.colors.passwordButtonBgHover};
+  }
+  &:active {
+    background-color: ${themes.colors.passwordButtonBgActive};
+  }
   &:active,
   &:focus {
     box-shadow: ${themes.boxShadow.passwordButtonActive};
@@ -116,7 +124,7 @@ const BlueButton = ({ as, href, children }) => {
   );
 };
 
-const BigBlueButton = ({ as, href, children }) => {
+const BigBlueButton = forwardRef(({ as, href, children }, ref) => {
   return (
     <>
       <StyledBigBlueButton as={as} href={href}>
@@ -124,7 +132,7 @@ const BigBlueButton = ({ as, href, children }) => {
       </StyledBigBlueButton>
     </>
   );
-};
+});
 
 const TransparentButton = ({ as, href, children }) => {
   return (

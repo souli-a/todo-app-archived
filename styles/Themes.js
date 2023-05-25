@@ -247,6 +247,12 @@ const themes = {
     todoCheckboxRootBorderCheckedActive: colors.grey2,
 
     paragraphTodoCheckboxRootChecked: colors.grey5,
+
+    passwordButtonBg: colors.grey1,
+    passwordButtonBgHover: colors.grey2,
+    passwordButtonBgActive: colors.grey3,
+
+    blackIcons: colors.black,
   },
 };
 

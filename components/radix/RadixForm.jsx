@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import * as Form from '@radix-ui/react-form';
 import * as Checkbox from '@radix-ui/react-checkbox';
 import themes from '../../styles/Themes';
+import { forwardRef } from 'react';
 
 const StyledFormRoot = styled(Form.Root)`
   width: ${themes.width.formRoot};
@@ -190,13 +191,13 @@ const FormControl = ({ children }) => {
   );
 };
 
-const CheckboxRoot = ({ children }) => {
+const CheckboxRoot = forwardRef(({ children }, ref) => {
   return (
     <>
       <StyledCheckboxRoot>{children}</StyledCheckboxRoot>
     </>
   );
-};
+});
 
 const TodoCheckboxRoot = ({ children }) => {
   return (

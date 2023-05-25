@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import themes from '../../styles/Themes';
+import { forwardRef } from 'react';
 
 const StyledInput = styled.input`
   font-size: ${themes.fontSize.input};
@@ -31,8 +32,7 @@ const StyledTodoInput = styled(StyledInput)`
   height: ${themes.height.todoInput};
   padding: ${themes.padding.todoInput};
 `;
-
-const Input = ({ type, placeholder, autocomplete }) => {
+const Input = forwardRef(({ type, placeholder, autocomplete }, ref) => {
   return (
     <>
       <StyledInput
@@ -42,7 +42,7 @@ const Input = ({ type, placeholder, autocomplete }) => {
       />
     </>
   );
-};
+});
 
 const TodoInput = ({ type, placeholder }) => {
   return (
