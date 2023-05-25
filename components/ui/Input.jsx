@@ -32,17 +32,6 @@ const StyledTodoInput = styled(StyledInput)`
   padding: ${themes.padding.todoInput};
 `;
 
-const StyledPasswordInput = styled(StyledInput)`
-  border-radius: ${themes.borderRadius.passwordInput};
-  height: ${themes.height.input};
-  &:focus + button {
-    box-shadow: ${themes.boxShadow.input} ${themes.colors.inputBg};
-  }
-  &:not(:placeholder-shown) + button {
-    box-shadow: ${themes.boxShadow.input} ${themes.colors.inputBg};
-  }
-`;
-
 const Input = ({ type, placeholder, autocomplete }) => {
   return (
     <>
@@ -63,26 +52,4 @@ const TodoInput = ({ type, placeholder }) => {
   );
 };
 
-const PasswordInput = ({
-  type,
-  placeholder,
-  onChange,
-  value,
-  name,
-  autoComplete,
-}) => {
-  return (
-    <>
-      <StyledPasswordInput
-        type={type}
-        placeholder={placeholder}
-        onChange={onChange}
-        value={value}
-        name={name}
-        autoComplete={autoComplete}
-      />
-    </>
-  );
-};
-
-export { Input, TodoInput, PasswordInput };
+export { Input, TodoInput };
