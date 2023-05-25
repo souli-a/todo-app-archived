@@ -9,6 +9,7 @@ import {
 import { Title2 } from '../components/ui/Title';
 import { BigBlueButton } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
+import InputPassword from '../components/ui/InputPassword.jsx';
 
 const Division = styled.div`
   height: 100%;
@@ -28,14 +29,22 @@ const Login = () => {
         <FormField name="email">
           <FormLabel>Email</FormLabel>
           <FormControl>
-            <Input type="email" placeholder="exemple@email.fr" />
+            <Input
+              type="email"
+              placeholder="exemple@email.fr"
+              autoComplete="email"
+            />
           </FormControl>
         </FormField>
 
         <FormField name="password">
           <FormLabel>Mot de passe</FormLabel>
           <FormControl>
-            <Input type="password" placeholder="Mot de passe" />
+            <InputPassword
+              type="password"
+              placeholder="Mot de passe"
+              autoComplete="current-password"
+            />
           </FormControl>
         </FormField>
 

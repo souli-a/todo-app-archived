@@ -41,6 +41,8 @@ const themes = {
     checkboxRoot: '0.7rem',
     checkboxIndicator: '0.4rem',
     todoCheckboxRoot: '0.7rem',
+    passwordInput: '0.7rem 0 0 0.7rem',
+    passwordButton: '0 0.7rem 0.7rem 0',
   },
   padding: {
     button: '1.15rem 1.5rem',
@@ -64,17 +66,21 @@ const themes = {
   width: {
     image: '4rem',
     formRoot: '37rem',
-    checkboxRoot: '3rem',
-    checkboxIndicator: '1.8rem',
+    checkboxRoot: '2.7rem',
+    checkboxIndicator: '1.5rem',
     todoInput: '100%',
     todoCheckboxRoot: '99%',
+    passwordButton: '5rem',
+    input: '100%',
   },
   height: {
-    checkboxRoot: '3rem',
-    checkboxIndicator: '1.8rem',
+    checkboxRoot: '2.7rem',
+    checkboxIndicator: '1.5rem',
     formFieldTerms: '3rem',
     todoInput: '6rem',
     todoCheckboxRoot: '5rem',
+    input: '4rem',
+    passwordButton: '4rem',
   },
   cursor: {
     button: 'pointer',
@@ -108,14 +114,17 @@ const themes = {
     formField: 'flex',
     formFieldTerms: 'flex',
     todoCheckboxRoot: 'flex',
+    passwordButton: 'flex',
   },
   justifyContent: {
     checkboxRoot: 'center',
+    passwordButton: 'center',
   },
   alignItems: {
     checkboxRoot: 'center',
     formFieldTerms: 'center',
     todoCheckboxRoot: 'center',
+    passwordButton: 'center',
   },
   flexDirection: {
     formRoot: 'column',
@@ -126,6 +135,8 @@ const themes = {
     input: '0 0 0 0.2rem',
     checkboxRoot: '0 0 0 0.2rem',
     todoCheckboxRoot: '0 0 0 0.2rem',
+    passwordButton: 'none',
+    passwordButtonActive: 'none',
   },
   lineHeight: {
     title1: '7rem',

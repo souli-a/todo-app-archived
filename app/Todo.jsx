@@ -48,7 +48,9 @@ const Todo = () => {
       <ChildDivision1>
         <ChildDivision2>
           <TodoInput placeholder="+ Ajouter une tâche" />
-          <Tasks>Bonjour, je suis une tâche.</Tasks>
+          <Tasks>Tâche 1</Tasks>
+          <Tasks>Tâche 2</Tasks>
+          <Tasks>Tâche 3</Tasks>
         </ChildDivision2>
       </ChildDivision1>
     </Division>

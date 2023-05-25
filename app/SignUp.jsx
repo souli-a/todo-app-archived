@@ -14,6 +14,7 @@ import { Title2 } from '../components/ui/Title';
 import { BigBlueButton } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import Link from '../components/ui/Link';
+import InputPassword from '../components/ui/InputPassword';
 
 const Division = styled.div`
   height: 100%;
@@ -33,21 +34,33 @@ const SignUp = () => {
         <FormField name="email">
           <FormLabel>Email</FormLabel>
           <FormControl>
-            <Input type="email" placeholder="exemple@email.fr" />
+            <Input
+              type="email"
+              placeholder="exemple@email.fr"
+              autoComplete="email"
+            />
           </FormControl>
         </FormField>
 
         <FormField name="password">
           <FormLabel>Mot de passe</FormLabel>
           <FormControl>
-            <Input type="password" placeholder="Mot de passe" />
+            <InputPassword
+              type="password"
+              placeholder="Mot de passe"
+              autoComplete="new-password"
+            />
           </FormControl>
         </FormField>
 
         <FormField name="confirmPassword">
           <FormLabel>Confirmer le mot de passe</FormLabel>
           <FormControl>
-            <Input type="password" placeholder="Confirmer le mot de passe" />
+            <InputPassword
+              type="password"
+              placeholder="Confirmer le mot de passe"
+              autoComplete="new-password"
+            />
           </FormControl>
         </FormField>
 
