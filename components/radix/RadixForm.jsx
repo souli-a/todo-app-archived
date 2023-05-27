@@ -14,7 +14,7 @@ const StyledFormRoot = styled(Form.Root)`
   & > *:not(:nth-last-child(2)) {
     margin-bottom: ${themes.marginBottom.formRootNotLastChild};
   }
-  & > :last-child {
+  & > *:last-child {
     margin-top: ${themes.marginTop.formRootLastChild};
   }
 `;
@@ -113,10 +113,10 @@ const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
     background-color: ${themes.colors.todoCheckboxRootBgChecked};
     p {
       text-decoration-line: ${themes.textDecorationLine
-        .paragraphTodoCheckboxRootChecked};
+    .paragraphTodoCheckboxRootChecked};
       color: ${themes.colors.paragraphTodoCheckboxRootChecked};
       text-decoration-thickness: ${themes.textDecorationThickness
-        .paragraphTodoCheckboxRootChecked};
+    .paragraphTodoCheckboxRootChecked};
     }
     &:hover {
       background-color: ${themes.colors.todoCheckboxRootBgCheckedHover};
@@ -140,10 +140,10 @@ const StyledCheckboxIndicator = styled(Checkbox.Indicator)`
 
 const StyledTodoCheckboxIndicator = styled(Checkbox.Indicator)``;
 
-const FormRoot = ({ children }) => {
+const FormRoot = ({ children, onSubmit }) => {
   return (
     <>
-      <StyledFormRoot>{children}</StyledFormRoot>
+      <StyledFormRoot onSubmit={onSubmit}>{children}</StyledFormRoot>
     </>
   );
 };
@@ -188,10 +188,10 @@ const FormControl = ({ children }) => {
   );
 };
 
-const CheckboxRoot = forwardRef(({ children }, ref) => {
+const CheckboxRoot = forwardRef(({ children, register }, ref) => {
   return (
     <>
-      <StyledCheckboxRoot>{children}</StyledCheckboxRoot>
+      <StyledCheckboxRoot {...register()}>{children}</StyledCheckboxRoot>
     </>
   );
 });

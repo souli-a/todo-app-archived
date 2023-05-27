@@ -76,13 +76,10 @@ const themes = {
     horizontalSeparator: '100%',
     tag: '6rem',
   },
-  minWidth: {
-    button: '5rem',
-  },
   height: {
     checkboxRoot: '2.7rem',
     checkboxIndicator: '1.5rem',
-    formFieldTerms: '3rem',
+    formFieldTerms: '4rem',
     todoInput: '6rem',
     input: '4rem',
     passwordButton: '4rem',
@@ -92,7 +89,6 @@ const themes = {
   minHeight: {
     todoCheckboxRoot: '5rem',
     card: '5.5rem',
-    button: '5rem',
   },
   cursor: {
     button: 'pointer',
@@ -173,7 +169,7 @@ const themes = {
     formFieldTerms: '0 0 -1.7rem 0',
   },
   marginTop: {
-    formRootLastChild: '3.8rem',
+    formRootLastChild: '3.5rem',
   },
   marginBottom: {
     formRootNotLastChild: '3rem',

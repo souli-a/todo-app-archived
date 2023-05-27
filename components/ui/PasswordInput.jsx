@@ -43,40 +43,43 @@ const PasswordInputParentDivision = styled.div`
   width: 100%;
 `;
 
-const PasswordInput = forwardRef(({ name, placeholder, autoComplete }, ref) => {
-  const [passwordType, setPasswordType] = useState('password');
-  const [passwordInput, setPasswordInput] = useState('');
+const PasswordInput = forwardRef(
+  ({ name, placeholder, autoComplete, register }, ref) => {
+    const [passwordType, setPasswordType] = useState('password');
+    const [passwordInput, setPasswordInput] = useState('');
 
-  const handlePasswordChange = (event) => {
-    setPasswordInput(event.target.value);
-  };
+    const handlePasswordChange = (event) => {
+      setPasswordInput(event.target.value);
+    };
 
-  const togglePassword = (event) => {
-    event.preventDefault();
-    passwordType === 'password'
-      ? setPasswordType('text')
-      : setPasswordType('password');
-  };
+    const togglePassword = (event) => {
+      event.preventDefault();
+      passwordType === 'password'
+        ? setPasswordType('text')
+        : setPasswordType('password');
+    };
 
-  return (
-    <PasswordInputParentDivision>
-      <StyledPasswordInput
-        type={passwordType}
-        onChange={handlePasswordChange}
-        value={passwordInput}
-        name={name}
-        placeholder={placeholder}
-        autoComplete={autoComplete}
-      />
-      <PasswordButton onClick={togglePassword}>
-        {passwordType === 'password' ? (
-          <Eye weight="regular" color={themes.colors.blackIcon} />
-        ) : (
-          <EyeSlash weight="regular" color={themes.colors.blackIcon} />
-        )}
-      </PasswordButton>
-    </PasswordInputParentDivision>
-  );
-});
+    return (
+      <PasswordInputParentDivision>
+        <StyledPasswordInput
+          {...register()}
+          type={passwordType}
+          onChange={handlePasswordChange}
+          value={passwordInput}
+          name={name}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+        />
+        <PasswordButton onClick={togglePassword}>
+          {passwordType === 'password' ? (
+            <Eye weight="regular" color={themes.colors.blackIcon} />
+          ) : (
+            <EyeSlash weight="regular" color={themes.colors.blackIcon} />
+          )}
+        </PasswordButton>
+      </PasswordInputParentDivision>
+    );
+  }
+);
 
 export default PasswordInput;

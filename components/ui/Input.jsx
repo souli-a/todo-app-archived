@@ -33,17 +33,20 @@ const StyledTodoInput = styled(StyledInput)`
   padding: ${themes.padding.todoInput};
 `;
 
-const Input = forwardRef(({ type, placeholder, autoComplete }, ref) => {
-  return (
-    <>
-      <StyledInput
-        type={type}
-        placeholder={placeholder}
-        autoComplete={autoComplete}
-      />
-    </>
-  );
-});
+const Input = forwardRef(
+  ({ type, placeholder, autoComplete, register }, ref) => {
+    return (
+      <>
+        <StyledInput
+          type={type}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          {...register()}
+        />
+      </>
+    );
+  }
+);
 
 const TodoInput = forwardRef(
   ({ type, placeholder, onChange, onKeyDown, value, maxLength }, ref) => {

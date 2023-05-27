@@ -12,8 +12,6 @@ const StyledBlueButton = styled.button`
   cursor: ${themes.cursor.button};
   letter-spacing: ${themes.letterSpacing.button};
   transition: ${themes.transition.button};
-  min-width: ${themes.minWidth.button};
-  min-height: ${themes.minHeight.button};
   display: ${themes.display.button};
   justify-content: ${themes.justifyContent.button};
   align-items: ${themes.alignItems.button};
@@ -100,13 +98,11 @@ const StyledGreyButton = styled(StyledBlueButton)`
 
 const StyledPasswordButton = styled(StyledGreyButton)`
   background-color: ${themes.colors.passwordButtonBg};
-  height: ${themes.height.passwordButton};
   display: ${themes.display.passwordButton};
   justify-content: ${themes.justifyContent.passwordButton};
   align-items: ${themes.alignItems.passwordButton};
   border-radius: ${themes.borderRadius.passwordButton};
   box-shadow: ${themes.boxShadow.passwordButton};
-  width: ${themes.width.passwordButton};
   &:hover {
     background-color: ${themes.colors.passwordButtonBgHover};
   }
@@ -129,10 +125,10 @@ const BlueButton = ({ as, href, children }) => {
   );
 };
 
-const BigBlueButton = forwardRef(({ as, href, children }, ref) => {
+const BigBlueButton = forwardRef(({ type, as, href, children }, ref) => {
   return (
     <>
-      <StyledBigBlueButton as={as} href={href}>
+      <StyledBigBlueButton type={type} as={as} href={href}>
         {children}
       </StyledBigBlueButton>
     </>
