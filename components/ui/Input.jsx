@@ -32,24 +32,35 @@ const StyledTodoInput = styled(StyledInput)`
   height: ${themes.height.todoInput};
   padding: ${themes.padding.todoInput};
 `;
-const Input = forwardRef(({ type, placeholder, autocomplete }, ref) => {
+
+const Input = forwardRef(({ type, placeholder, autoComplete }, ref) => {
   return (
     <>
       <StyledInput
         type={type}
         placeholder={placeholder}
-        autoComplete={autocomplete}
+        autoComplete={autoComplete}
       />
     </>
   );
 });
 
-const TodoInput = ({ type, placeholder }) => {
-  return (
-    <>
-      <StyledTodoInput type={type} placeholder={placeholder} />
-    </>
-  );
-};
+const TodoInput = forwardRef(
+  ({ type, placeholder, onChange, onKeyDown, value, maxLength }, ref) => {
+    return (
+      <>
+        <StyledTodoInput
+          onChange={onChange}
+          type={type}
+          placeholder={placeholder}
+          onKeyDown={onKeyDown}
+          value={value}
+          ref={ref}
+          maxLength={maxLength}
+        />
+      </>
+    );
+  }
+);
 
 export { Input, TodoInput };

@@ -15,15 +15,8 @@ const themes = {
     bigButton: '1.9rem',
     todoInput: '1.8rem',
     paragraphTodoCheckboxRoot: '1.8rem',
-  },
-  overflow: {
-    paragraphTodoCheckboxRoot: 'hidden',
-  },
-  whiteSpace: {
-    paragraphTodoCheckboxRoot: 'nowrap',
-  },
-  textOverflow: {
-    paragraphTodoCheckboxRoot: 'ellipsis',
+    card: '1.8rem',
+    tag: '1.5rem',
   },
   textDecorationLine: {
     paragraphTodoCheckboxRootChecked: 'line-through',
@@ -43,13 +36,19 @@ const themes = {
     todoCheckboxRoot: '0.7rem',
     passwordInput: '0.7rem 0 0 0.7rem',
     passwordButton: '0 0.7rem 0.7rem 0',
+    card: '0.7rem',
+    roundedSeparator: '0.7rem',
+    horizontalSeparator: '0.7rem',
+    tag: '0.7rem',
   },
   padding: {
     button: '1.15rem 1.5rem',
     bigButton: '1.8rem 1.5rem',
     input: '0.9rem 1.5rem',
-    todoInput: '0 1.5rem 0 1.5rem',
+    todoInput: '0 10.1rem 0 1.5rem',
     todoCheckboxRoot: '0 1.5rem 0 1.5rem',
+    card: '0 1.5rem 0 1.5rem',
+    tag: '0.6rem',
   },
   outline: {
     input: 'none',
@@ -67,20 +66,33 @@ const themes = {
     image: '4rem',
     formRoot: '37rem',
     checkboxRoot: '2.7rem',
+    todoCheckboxRoot: '100%',
     checkboxIndicator: '1.5rem',
     todoInput: '100%',
-    todoCheckboxRoot: '99%',
     passwordButton: '5rem',
     input: '100%',
+    card: '100%',
+    roundedSeparator: '0.5rem',
+    horizontalSeparator: '100%',
+    tag: '6rem',
+  },
+  minWidth: {
+    button: '5rem',
   },
   height: {
     checkboxRoot: '2.7rem',
     checkboxIndicator: '1.5rem',
     formFieldTerms: '3rem',
     todoInput: '6rem',
-    todoCheckboxRoot: '5rem',
     input: '4rem',
     passwordButton: '4rem',
+    roundedSeparator: '0.5rem',
+    horizontalSeparator: '0.1rem',
+  },
+  minHeight: {
+    todoCheckboxRoot: '5rem',
+    card: '5.5rem',
+    button: '5rem',
   },
   cursor: {
     button: 'pointer',
@@ -115,16 +127,24 @@ const themes = {
     formFieldTerms: 'flex',
     todoCheckboxRoot: 'flex',
     passwordButton: 'flex',
+    card: 'flex',
+    button: 'flex',
+    tag: 'flex',
   },
   justifyContent: {
     checkboxRoot: 'center',
     passwordButton: 'center',
+    button: 'center',
+    tag: 'center',
   },
   alignItems: {
     checkboxRoot: 'center',
     formFieldTerms: 'center',
     todoCheckboxRoot: 'center',
     passwordButton: 'center',
+    card: 'center',
+    button: 'center',
+    tag: 'center',
   },
   flexDirection: {
     formRoot: 'column',
@@ -159,7 +179,7 @@ const themes = {
     formRootNotLastChild: '3rem',
   },
   marginLeft: {
-    title1: '-0.6rem',
+    title1: '-0.7rem',
     title2: '-0.3rem',
     title3: '-0.3rem',
   },
@@ -252,7 +272,17 @@ const themes = {
     passwordButtonBgHover: colors.grey2,
     passwordButtonBgActive: colors.grey3,
 
-    blackIcons: colors.black,
+    blackIcon: colors.black,
+    whiteIcon: colors.white,
+
+    cardBg: colors.grey1,
+    card: colors.grey3,
+
+    roundedSeparatorBg: colors.black,
+    horizontalSeparatorBg: colors.grey2,
+
+    tag: colors.white,
+    tagBg: colors.grey4,
   },
 };
 

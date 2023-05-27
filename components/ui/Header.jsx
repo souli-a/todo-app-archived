@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { TransparentButton, BlueButton } from './Button';
 import Logo from './Logo';
+import { RoundedSeparator, HorizontalSeparator } from '../radix/RadixSeparator';
 
 const Division = styled.div`
   height: fit-content;
-  padding: 1rem 15rem 2rem 15rem;
+  padding: 3rem 15rem 3rem 15rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
   &.right-header {
     padding: 0;
     display: flex;
@@ -34,6 +34,7 @@ const Header = () => {
           </BlueButton>
         </Division>
       </Division>
+      <HorizontalSeparator />
     </header>
   );
 };

@@ -43,7 +43,7 @@ const PasswordInputParentDivision = styled.div`
   width: 100%;
 `;
 
-const PasswordInput = forwardRef(({ name, placeholder, autocomplete }, ref) => {
+const PasswordInput = forwardRef(({ name, placeholder, autoComplete }, ref) => {
   const [passwordType, setPasswordType] = useState('password');
   const [passwordInput, setPasswordInput] = useState('');
 
@@ -66,13 +66,13 @@ const PasswordInput = forwardRef(({ name, placeholder, autocomplete }, ref) => {
         value={passwordInput}
         name={name}
         placeholder={placeholder}
-        autoComplete={autocomplete}
+        autoComplete={autoComplete}
       />
       <PasswordButton onClick={togglePassword}>
         {passwordType === 'password' ? (
-          <Eye weight="regular" color={themes.colors.blackIcons} />
+          <Eye weight="regular" color={themes.colors.blackIcon} />
         ) : (
-          <EyeSlash weight="regular" color={themes.colors.blackIcons} />
+          <EyeSlash weight="regular" color={themes.colors.blackIcon} />
         )}
       </PasswordButton>
     </PasswordInputParentDivision>

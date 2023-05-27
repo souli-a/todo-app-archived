@@ -13,6 +13,8 @@
     "@phosphor-icons/react": "^2.0.9",
     "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-form": "^0.0.2",
+    "@radix-ui/react-separator": "^1.0.3",
+    "nanoid": "^4.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "6.0.0-rc.1"

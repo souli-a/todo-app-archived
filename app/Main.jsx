@@ -20,6 +20,6 @@ import PrivacyPolicy from './PolicyPrivacy';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Reset />
-    <SignUp />
+    <Todo />
   </React.StrictMode>
 );

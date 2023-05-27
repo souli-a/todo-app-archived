@@ -12,6 +12,11 @@ const StyledBlueButton = styled.button`
   cursor: ${themes.cursor.button};
   letter-spacing: ${themes.letterSpacing.button};
   transition: ${themes.transition.button};
+  min-width: ${themes.minWidth.button};
+  min-height: ${themes.minHeight.button};
+  display: ${themes.display.button};
+  justify-content: ${themes.justifyContent.button};
+  align-items: ${themes.alignItems.button};
   &:hover {
     background-color: ${themes.colors.blueHover};
   }
@@ -164,10 +169,10 @@ const BigGreenButton = ({ as, href, children }) => {
   );
 };
 
-const RedButton = ({ as, href, children }) => {
+const RedButton = ({ as, href, children, onClick }) => {
   return (
     <>
-      <StyledRedButton as={as} href={href}>
+      <StyledRedButton onClick={onClick} as={as} href={href}>
         {children}
       </StyledRedButton>
     </>

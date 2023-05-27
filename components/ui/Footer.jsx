@@ -1,29 +1,25 @@
 import styled from 'styled-components';
 import Paragraph from './Paragraph';
 import Link from './Link';
+import { RoundedSeparator, HorizontalSeparator } from '../radix/RadixSeparator';
 
 const Division = styled.div`
-  height: fit-content;
-  padding: 1rem;
+  padding: 3rem 1rem 3rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background-color: transparent;
-  & span {
-    font-size: 3rem;
-    opacity: 0.6;
-  }
 `;
 
 const Footer = () => {
   return (
     <footer>
+      <HorizontalSeparator />
       <Division>
         <Paragraph>Listify © 2023</Paragraph>
-        <span>·</span>
+        <RoundedSeparator />
         <Link>Confidentialité</Link>
-        <span>·</span>
+        <RoundedSeparator />
         <Link>Conditions générales</Link>
       </Division>
     </footer>

@@ -84,7 +84,7 @@ const StyledCheckboxRoot = styled(Checkbox.Root)`
 
 const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
   width: ${themes.width.todoCheckboxRoot};
-  height: ${themes.height.todoCheckboxRoot};
+  min-height: ${themes.minHeight.todoCheckboxRoot};
 
   border-radius: ${themes.borderRadius.todoCheckboxRoot};
 
@@ -100,9 +100,6 @@ const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
   transition: ${themes.transition.todoCheckboxRoot};
   p {
     font-size: ${themes.fontSize.paragraphTodoCheckboxRoot};
-    overflow: ${themes.overflow.paragraphTodoCheckboxRoot};
-    white-space: ${themes.whiteSpace.paragraphTodoCheckboxRoot};
-    text-overflow: ${themes.textOverflow.paragraphTodoCheckboxRoot};
   }
   &:hover {
     background-color: ${themes.colors.todoCheckboxRootBgHover};
@@ -116,10 +113,10 @@ const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
     background-color: ${themes.colors.todoCheckboxRootBgChecked};
     p {
       text-decoration-line: ${themes.textDecorationLine
-    .paragraphTodoCheckboxRootChecked};
+        .paragraphTodoCheckboxRootChecked};
       color: ${themes.colors.paragraphTodoCheckboxRootChecked};
       text-decoration-thickness: ${themes.textDecorationThickness
-    .paragraphTodoCheckboxRootChecked};
+        .paragraphTodoCheckboxRootChecked};
     }
     &:hover {
       background-color: ${themes.colors.todoCheckboxRootBgCheckedHover};
@@ -199,10 +196,12 @@ const CheckboxRoot = forwardRef(({ children }, ref) => {
   );
 });
 
-const TodoCheckboxRoot = ({ children }) => {
+const TodoCheckboxRoot = ({ onClick, children }) => {
   return (
     <>
-      <StyledTodoCheckboxRoot>{children}</StyledTodoCheckboxRoot>
+      <StyledTodoCheckboxRoot onClick={onClick}>
+        {children}
+      </StyledTodoCheckboxRoot>
     </>
   );
 };

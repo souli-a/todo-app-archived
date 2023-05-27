@@ -54,12 +54,15 @@ button {
 }
 
 input {
-  box-sizing: border-box;
   outline: none;
 }
 
 a {
   text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
 }
 `;
 
