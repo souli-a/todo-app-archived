@@ -113,10 +113,11 @@ const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
   &[data-state='checked'] {
     background-color: ${themes.colors.todoCheckboxRootBgChecked};
     p {
-      text-decoration-line: ${themes.textDecorationLine.paragraphTodoCheckboxRootChecked};
+      text-decoration-line: ${themes.textDecorationLine
     .paragraphTodoCheckboxRootChecked};
       color: ${themes.colors.paragraphTodoCheckboxRootChecked};
-      text-decoration-thickness: ${themes.textDecorationThickness.paragraphTodoCheckboxRootChecked};
+      text-decoration-thickness: ${themes.textDecorationThickness
+    .paragraphTodoCheckboxRootChecked};
     }
     &:hover {
       background-color: ${themes.colors.todoCheckboxRootBgCheckedHover};
@@ -138,9 +139,7 @@ const StyledCheckboxIndicator = styled(Checkbox.Indicator)`
   transition: ${themes.transition.checkboxIndicator};
 `;
 
-const StyledTodoCheckboxIndicator = styled(Checkbox.Indicator)`
-  width: ${themes.width.todoCheckboxIndicator};
-`;
+const StyledTodoCheckboxIndicator = styled(Checkbox.Indicator)``;
 
 const FormRoot = ({ children, onSubmit }) => {
   return (
@@ -193,7 +192,9 @@ const FormControl = ({ children }) => {
 const CheckboxRoot = forwardRef(({ children, register }, ref) => {
   return (
     <>
-      <StyledCheckboxRoot {...register()}>{children}</StyledCheckboxRoot>
+      <StyledCheckboxRoot ref={ref} {...register()}>
+        {children}
+      </StyledCheckboxRoot>
     </>
   );
 });

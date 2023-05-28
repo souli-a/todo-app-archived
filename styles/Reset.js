@@ -61,6 +61,10 @@ input {
 a {
   text-decoration: none;
 }
+
+button, input, p  {
+  box-sizing: border-box;
+}
 `;
 
 export default Reset;

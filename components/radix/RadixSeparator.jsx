@@ -1,5 +1,5 @@
 import * as Separator from '@radix-ui/react-separator';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import themes from '../../styles/Themes';
 
 const StyledRoundedSeparator = styled(Separator.Root)`

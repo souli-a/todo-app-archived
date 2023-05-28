@@ -21,41 +21,61 @@ const Division = styled.div`
   height: 100%;
 `;
 
-const AllContentDivision = styled.div`
+const CounterDivision = styled.div`
+  display: flex;
+  gap: 2.5rem;
+  width: 100%;
+`;
+
+const FullContentDivision = styled.div`
   width: 50rem;
 `;
 
-const StyledTag = styled(Tag)`
-  position: absolute;
-  margin-left: 42rem;
-  margin-top: 1.7rem;
+const InputDivision = styled.div`
+  width: 100%;
+  display: flex;
 `;
 
-const AllTasksDivision = styled.div`
+const StyledTag = styled(Tag)`
+  &.tag-keybinds {
+    position: absolute;
+    margin-left: 42rem;
+    margin-top: 1.7rem;
+  }
+`;
+
+const FullTasksDivision = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 3rem 0 3rem 0;
-  gap: 1.8rem;
+  gap: 2rem;
+  margin: 4rem 0 4rem 0;
 `;
 
-const InputDivision = styled.div`
-  display: flex;
-`;
-
-const OneTaskDivision = styled.div`
+const TasksDivision = styled.div`
   display: flex;
   width: 100%;
-  gap: 2.5rem;
+  gap: 2rem;
   height: 5rem;
 `;
 
-const CounterDivision = styled.div`
-  display: flex;
+const ParentCounterDivision = styled.div`
   width: 100%;
-  gap: 2.5rem;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+  gap: 4rem;
 `;
+
+const Tasks = ({ children, onClick }) => {
+  return (
+    <TodoCheckboxRoot onClick={onClick}>
+      <TodoCheckboxIndicator />
+      <Paragraph>{children}</Paragraph>
+    </TodoCheckboxRoot>
+  );
+};
 
 const Todo = () => {
   const inputRef = useRef();
@@ -63,31 +83,6 @@ const Todo = () => {
   const [inputValue, setInputValue] = useState('');
   const [remainingTasks, setRemainingTasks] = useState(0);
   const [doneTasks, setDoneTasks] = useState(0);
-
-  const DeleteButton = ({ onClick }) => {
-    return (
-      <>
-        <RedButton onClick={onClick}>
-          <TrashSimple
-            size={28}
-            weight="fill"
-            color={themes.colors.whiteIcon}
-          />
-        </RedButton>
-      </>
-    );
-  };
-
-  const TaskCard = ({ children, onClick }) => {
-    return (
-      <>
-        <TodoCheckboxRoot onClick={onClick}>
-          <TodoCheckboxIndicator />
-          <Paragraph>{children}</Paragraph>
-        </TodoCheckboxRoot>
-      </>
-    );
-  };
 
   useEffect(() => {
     const tasksTotal = todos.length;
@@ -146,7 +141,7 @@ const Todo = () => {
 
   return (
     <Division>
-      <AllContentDivision>
+      <FullContentDivision>
         <InputDivision>
           <TodoInput
             onChange={handleChange}
@@ -154,40 +149,42 @@ const Todo = () => {
             placeholder="+ Ajouter une tâche ― Appuyer sur Entrée"
             value={inputValue}
             ref={inputRef}
-            maxLength="35"
+            maxLength="40"
           />
-          <StyledTag>ctrl + k</StyledTag>
+          <StyledTag className="tag-keybinds">ctrl + k</StyledTag>
         </InputDivision>
-        <AllTasksDivision>
+        {todos.length > 0 && (
+          <FullTasksDivision>
+            {todos.map((todo) => (
+              <TasksDivision key={todo.id}>
+                <Tasks className="tasks" onClick={() => handleDone(todo.id)}>
+                  {todo.content}
+                </Tasks>
+                <RedButton onClick={() => handleDeleteTodo(todo.id)}>
+                  <TrashSimple
+                    size={32}
+                    weight="fill"
+                    color={themes.colors.whiteIcon}
+                  />
+                </RedButton>
+              </TasksDivision>
+            ))}
+          </FullTasksDivision>
+        )}
+        <ParentCounterDivision>
           {todos.length === 0 && <Card>Aucune tâche en cours</Card>}
-          {todos.length > 0 && (
-            <>
-              {todos.map((todo) => (
-                <OneTaskDivision>
-                  <TaskCard
-                    key={todo.id}
-                    className="tasks"
-                    onClick={() => handleDone(todo.id)}
-                  >
-                    {todo.content}
-                  </TaskCard>
-                  <DeleteButton onClick={() => handleDeleteTodo(todo.id)} />
-                </OneTaskDivision>
-              ))}
-            </>
-          )}
-        </AllTasksDivision>
-        <CounterDivision>
-          <Card>
-            J'ai {remainingTasks}{' '}
-            {remainingTasks > 1 ? 'tâches restantes' : 'tâche restante'}
-          </Card>
-          <Card>
-            J'ai {doneTasks > 1 ? 'terminées' : 'terminé'} {doneTasks}{' '}
-            {doneTasks > 1 ? 'tâches' : 'tâche'}
-          </Card>
-        </CounterDivision>
-      </AllContentDivision>
+          <CounterDivision>
+            <Card>
+              J'ai {remainingTasks}{' '}
+              {remainingTasks > 1 ? 'tâches restantes' : 'tâche restante'}
+            </Card>
+            <Card>
+              J'ai {doneTasks > 1 ? 'terminées' : 'terminé'} {doneTasks}{' '}
+              {doneTasks > 1 ? 'tâches' : 'tâche'}
+            </Card>
+          </CounterDivision>
+        </ParentCounterDivision>
+      </FullContentDivision>
     </Division>
   );
 };
