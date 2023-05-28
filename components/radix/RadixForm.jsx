@@ -48,8 +48,8 @@ const StyledFormLabelTerms = styled(Form.Label)`
 `;
 
 const StyledCheckboxRoot = styled(Checkbox.Root)`
-  min-width: ${themes.width.checkboxRoot};
-  min-height: ${themes.height.checkboxRoot};
+  width: ${themes.width.checkboxRoot};
+  height: ${themes.height.checkboxRoot};
   border-radius: ${themes.borderRadius.checkboxRoot};
   margin: ${themes.margin.checkboxRoot};
   display: ${themes.display.checkboxRoot};
@@ -84,7 +84,7 @@ const StyledCheckboxRoot = styled(Checkbox.Root)`
 
 const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
   width: ${themes.width.todoCheckboxRoot};
-  min-height: ${themes.minHeight.todoCheckboxRoot};
+  height: ${themes.height.todoCheckboxRoot};
 
   border-radius: ${themes.borderRadius.todoCheckboxRoot};
 
@@ -100,6 +100,7 @@ const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
   transition: ${themes.transition.todoCheckboxRoot};
   p {
     font-size: ${themes.fontSize.paragraphTodoCheckboxRoot};
+    overflow: ${themes.overflow.paragraphTodoCheckboxRoot};
   }
   &:hover {
     background-color: ${themes.colors.todoCheckboxRootBgHover};
@@ -112,11 +113,10 @@ const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
   &[data-state='checked'] {
     background-color: ${themes.colors.todoCheckboxRootBgChecked};
     p {
-      text-decoration-line: ${themes.textDecorationLine
+      text-decoration-line: ${themes.textDecorationLine.paragraphTodoCheckboxRootChecked};
     .paragraphTodoCheckboxRootChecked};
       color: ${themes.colors.paragraphTodoCheckboxRootChecked};
-      text-decoration-thickness: ${themes.textDecorationThickness
-    .paragraphTodoCheckboxRootChecked};
+      text-decoration-thickness: ${themes.textDecorationThickness.paragraphTodoCheckboxRootChecked};
     }
     &:hover {
       background-color: ${themes.colors.todoCheckboxRootBgCheckedHover};
@@ -138,7 +138,9 @@ const StyledCheckboxIndicator = styled(Checkbox.Indicator)`
   transition: ${themes.transition.checkboxIndicator};
 `;
 
-const StyledTodoCheckboxIndicator = styled(Checkbox.Indicator)``;
+const StyledTodoCheckboxIndicator = styled(Checkbox.Indicator)`
+  width: ${themes.width.todoCheckboxIndicator};
+`;
 
 const FormRoot = ({ children, onSubmit }) => {
   return (

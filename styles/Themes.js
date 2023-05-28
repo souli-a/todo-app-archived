@@ -21,6 +21,9 @@ const themes = {
   textDecorationLine: {
     paragraphTodoCheckboxRootChecked: 'line-through',
   },
+  overflow: {
+    paragraphTodoCheckboxRoot: 'hidden',
+  },
   textDecorationThickness: {
     paragraphTodoCheckboxRootChecked: '0.2rem',
   },
@@ -75,6 +78,7 @@ const themes = {
     roundedSeparator: '0.5rem',
     horizontalSeparator: '100%',
     tag: '6rem',
+    todoCheckboxIndicator: '100%',
   },
   height: {
     checkboxRoot: '2.7rem',
@@ -85,10 +89,10 @@ const themes = {
     passwordButton: '4rem',
     roundedSeparator: '0.5rem',
     horizontalSeparator: '0.1rem',
+    todoCheckboxRoot: '5rem',
   },
   minHeight: {
-    todoCheckboxRoot: '5rem',
-    card: '5.5rem',
+    card: '5rem',
   },
   cursor: {
     button: 'pointer',
@@ -181,17 +185,17 @@ const themes = {
   },
   transition: {
     button:
-      'box-shadow .15s ease-in-out, border .15s ease-in-out, background-color .15s ease-in-out, color .15s ease-in-out',
+      'box-shadow .12s ease-in-out, border .12s ease-in-out, background-color .12s ease-in-out, color .12s ease-in-out',
     input:
-      'box-shadow .15s ease-in-out, border .15s ease-in-out, background-color .15s ease-in-out, color .15s ease-in-out',
-    link: 'color .15s ease-in-out',
-    logo: 'opacity .15s ease-in-out',
+      'box-shadow .12s ease-in-out, border .12s ease-in-out, background-color .12s ease-in-out, color .12s ease-in-out',
+    link: 'color .12s ease-in-out',
+    logo: 'opacity .12s ease-in-out',
     checkboxRoot:
-      'background-color .15s ease-in-out, box-shadow .15s ease-in-out',
+      'background-color .12s ease-in-out, box-shadow .12s ease-in-out',
     checkboxIndicator:
-      'background-color .15s ease-in-out, color .15s ease-in-out',
+      'background-color .12s ease-in-out, color .12s ease-in-out',
     todoCheckboxRoot:
-      'background-color .15s ease-in-out, color .15s ease-in-out, box-shadow .15s ease-in-out',
+      'background-color .12s ease-in-out, color .12s ease-in-out, box-shadow .12s ease-in-out',
   },
   colors: {
     white: colors.white,

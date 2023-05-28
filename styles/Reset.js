@@ -19,6 +19,7 @@ time, mark, audio, video, button, input {
 	border: 0;
 	font: inherit;
 	vertical-align: baseline;
+  box-sizing: border-box;
 }
 
 article, aside, details, figcaption, figure, 
@@ -59,10 +60,6 @@ input {
 
 a {
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }
 `;
 
