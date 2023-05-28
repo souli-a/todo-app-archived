@@ -44,8 +44,8 @@ const schema = z
       .toLowerCase()
       .min(1, { message: 'Un email est obligatoire' })
       .email({ message: 'Un e-mail valide est obligatoire' })
-      .min(10, { message: "L'email doit contenir 10 caractères minimum" })
-      .max(40, { message: "L'email doit contenir 40 caractères maximum" }),
+      .min(10, { message: "L'email doit contenir 10 caractères au minimum" })
+      .max(40, { message: "L'email doit contenir 40 caractères au maximum" }),
     password: z
       .string()
       .min(1, { message: 'Un mot de passe est obligatoire' })
