@@ -15,11 +15,14 @@ import Login from './Login';
 import Home from './Home';
 import Todo from './Todo';
 
-import PrivacyPolicy from './PolicyPrivacy';
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Reset />
     <Todo />
+    <Home />
+    <Login />
+    <SignUp />
+    <PolicyPrivacy />
+    <TermsAndConditions />
   </React.StrictMode>
 );

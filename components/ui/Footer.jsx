@@ -18,9 +18,9 @@ const Footer = () => {
       <Division>
         <Paragraph>Listify © 2023</Paragraph>
         <RoundedSeparator />
-        <Link>Confidentialité</Link>
+        <Link href="/privacy">Confidentialité</Link>
         <RoundedSeparator />
-        <Link>Conditions générales</Link>
+        <Link href="/terms">Conditions générales</Link>
       </Division>
     </footer>
   );

@@ -100,9 +100,9 @@ const Todo = () => {
   const handleAddTodo = () => {
     inputValue !== ''
       ? setTodos([
-        { id: nanoid(), content: inputValue, isDone: false },
-        ...todos,
-      ])
+          { id: nanoid(), content: inputValue, isDone: false },
+          ...todos,
+        ])
       : null;
     setInputValue('');
     inputRef.current.blur();
@@ -146,7 +146,7 @@ const Todo = () => {
           <TodoInput
             onChange={handleChange}
             onKeyDown={handleKeyDown}
-            placeholder="+ Ajouter une tâche ― Appuyer sur Entrée"
+            placeholder="+ Ajouter une tâche ― Appuyer sur Entrée ✌️"
             value={inputValue}
             ref={inputRef}
             maxLength="40"

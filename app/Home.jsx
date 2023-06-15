@@ -41,7 +41,9 @@ const Home = () => {
           <Title2>
             Une case à <Bold>cocher</Bold>.
           </Title2>
-          <BigBlueButton as="a">S'inscrire</BigBlueButton>
+          <BigBlueButton href="/signup" as="a">
+            S'inscrire
+          </BigBlueButton>
         </ChildDivision2>
       </ChildDivision1>
       <Footer />

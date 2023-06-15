@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { TransparentButton, BlueButton } from './Button';
 import Logo from './Logo';
-import { RoundedSeparator, HorizontalSeparator } from '../radix/RadixSeparator';
+import { HorizontalSeparator } from '../radix/RadixSeparator';
 
 const Division = styled.div`
   height: fit-content;
@@ -20,11 +20,7 @@ const Header = () => {
   return (
     <header>
       <Division>
-        <Logo
-          src="../assets/logo.png"
-          href="https://google.fr"
-          alt="logo du site web"
-        />
+        <Logo src="../assets/images/logo.png" href="/" alt="logo du site web" />
         <Division className="right-header">
           <TransparentButton as="a" href="/login">
             Connexion
