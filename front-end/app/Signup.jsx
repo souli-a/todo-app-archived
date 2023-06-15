@@ -152,8 +152,8 @@ const Signup = () => {
           <FormFieldTerms name="terms">
             <FormLabelTerms>
               En vous inscrivant vous acceptez notre{' '}
-              <Link href="https://google.fr">Politique de confidentialité</Link>{' '}
-              et <Link href="https://google.fr">Termes et conditions</Link>
+              <Link href="/privacy">Politique de confidentialité</Link> et{' '}
+              <Link href="/terms">Termes et conditions</Link>
             </FormLabelTerms>
           </FormFieldTerms>
 
