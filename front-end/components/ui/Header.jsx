@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { TransparentButton, BlueButton } from './Button';
+import { TransparentButton, BlueButton, RedButton } from './Button';
 import Logo from './Logo';
 import { HorizontalSeparator } from '../radix/RadixSeparator';
+import axios from 'axios';
 
 const Division = styled.div`
   height: fit-content;
@@ -16,6 +17,18 @@ const Division = styled.div`
   }
 `;
 
+const handleLogout = (e) => {
+  e.preventDefault();
+  axios
+    .get('http://localhost:4000/api/users/logout', {
+      // Allow cookies in Axios.
+      withCredentials: true,
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 const Header = () => {
   return (
     <header>
@@ -28,6 +41,7 @@ const Header = () => {
           <BlueButton as="a" href="/signup">
             S'inscrire
           </BlueButton>
+          <RedButton onClick={handleLogout}>Déconnexion</RedButton>
         </Division>
       </Division>
       <HorizontalSeparator />

@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const userRoutes = require('./routes/userRoutes');
 
 // Attach .env variables to process object in Node.js.
 require('dotenv').config();
@@ -27,6 +28,9 @@ app.use(express.json());
 
 // Needed to use cookie in Express.js.
 app.use(cookieParser());
+
+// Get the routes from routes files that use express.Router() function.
+app.use('/api/users', userRoutes);
 
 // Link MongoDB with mongoose.
 mongoose

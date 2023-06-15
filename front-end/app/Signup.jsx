@@ -18,6 +18,7 @@ import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Header from '../components/ui/Header';
+import axios from 'axios';
 
 const FullPageDivision = styled.div`
   width: 100%;
@@ -76,7 +77,25 @@ const schema = z
     path: ['confirmPassword'],
   });
 
-const onSubmit = (data) => console.log(data);
+const onSubmit = (data, e) => {
+  e.preventDefault();
+  // Exclude confirmPassword field from the data.
+  axios
+    .post(
+      'http://localhost:4000/api/users/signup',
+      {
+        email: data.email,
+        password: data.password,
+      },
+      {
+        // Allow cookies in Axios.
+        withCredentials: true,
+      }
+    )
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 const Signup = () => {
   const {
