@@ -4,7 +4,8 @@ import Logo from './Logo';
 import { HorizontalSeparator } from '../radix/RadixSeparator';
 import axios from 'axios';
 import AuthContext from '../context/authContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import LoadingIcon from '../../components/ui/LoadingIcon';
 
 const Division = styled.div`
   height: fit-content;
@@ -21,9 +22,11 @@ const Division = styled.div`
 
 const Header = () => {
   const { isAuth, setIsAuth } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogout = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     axios
       .get('http://localhost:4000/api/users/logout', {
         // Allow cookies in Axios.
@@ -34,6 +37,9 @@ const Header = () => {
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -48,7 +54,9 @@ const Header = () => {
               alt="logo du site web"
             />
             <Division className="right-header">
-              <RedButton onClick={handleLogout}>Déconnexion</RedButton>
+              <RedButton onClick={handleLogout}>
+                {isLoading ? <LoadingIcon /> : 'Déconnexion'}
+              </RedButton>
             </Division>
           </Division>
           <HorizontalSeparator />

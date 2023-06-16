@@ -19,7 +19,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Header from '../components/ui/Header';
 import axios from 'axios';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import LoadingIcon from '../components/ui/LoadingIcon';
 
 const FullPageDivision = styled.div`
   width: 100%;
@@ -39,7 +40,7 @@ const StyledSpan = styled.span`
   &.error-message {
     position: absolute;
     color: ${colors.red4};
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin: 0.85rem 0 0 0.1rem;
     padding: 0;
   }
@@ -86,9 +87,11 @@ const Signup = () => {
   } = useForm({ resolver: zodResolver(schema) });
 
   const [emailError, setEmailError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = (data, e) => {
     e.preventDefault();
+    setIsLoading(true);
     // Exclude confirmPassword field from the data.
     axios
       .post(
@@ -106,6 +109,9 @@ const Signup = () => {
         if (error.response.data.errorEmail) {
           setEmailError(error.response.data.errorEmail);
         }
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -187,7 +193,9 @@ const Signup = () => {
           </FormFieldTerms>
 
           <FormSubmit>
-            <BigBlueButton type="submit">S'inscrire</BigBlueButton>
+            <BigBlueButton type="submit">
+              {isLoading ? <LoadingIcon /> : "S'inscrire"}
+            </BigBlueButton>
           </FormSubmit>
         </FormRoot>
       </Division>

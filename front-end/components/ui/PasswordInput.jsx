@@ -48,12 +48,12 @@ const PasswordInput = forwardRef(
     const [passwordType, setPasswordType] = useState('password');
     const [passwordInput, setPasswordInput] = useState('');
 
-    const handlePasswordChange = (event) => {
-      setPasswordInput(event.target.value);
+    const handlePasswordChange = (e) => {
+      setPasswordInput(e.target.value);
     };
 
-    const togglePassword = (event) => {
-      event.preventDefault();
+    const togglePassword = (e) => {
+      e.preventDefault();
       passwordType === 'password'
         ? setPasswordType('text')
         : setPasswordType('password');
