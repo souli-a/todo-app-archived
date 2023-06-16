@@ -4,6 +4,7 @@ import Signup from './Signup';
 import Login from './Login';
 import Home from './Home';
 import Todo from './Todo';
+import PageNotFound from './PageNotFound';
 
 import '../styles/Index.css';
 import Reset from '../styles/Reset.js';
@@ -48,6 +49,7 @@ const App = () => {
           />
           <Route path="/privacy" element={<PolicyPrivacy />} />
           <Route path="/terms" element={<TermsAndConditions />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </AuthContext.Provider>
     </BrowserRouter>
