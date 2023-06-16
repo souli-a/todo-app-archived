@@ -23,10 +23,22 @@ const ChildDivision2 = styled.div`
   display: flex;
   flex-direction: column;
   margin: 20rem 0 40rem 0;
+  padding: 0rem 5rem 0rem 5rem;
   gap: 4rem;
   width: fit-content;
   > h2 {
     margin-top: -2rem;
+  }
+  @media (max-width: 700px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 15rem 0 40rem 0;
+  }
+  @media (max-width: 370px) {
+    margin: 5rem 0 10rem 0;
   }
 `;
 

@@ -8,7 +8,16 @@ const Division = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
+  columns: 2;
+  @media (max-width: 360px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    white-space: nowrap;
+  }
 `;
 
 const Footer = () => {

@@ -18,6 +18,31 @@ const Division = styled.div`
     display: flex;
     gap: 1rem;
   }
+  @media (max-width: 600px) {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+  @media (max-width: 370px) {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    &.right-header {
+      gap: 2rem;
+    }
+  }
+`;
+
+const LogoDivision = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 `;
 
 const Header = () => {
@@ -48,11 +73,13 @@ const Header = () => {
       {isAuth ? (
         <>
           <Division>
-            <Logo
-              src="../assets/images/logo.png"
-              href="/"
-              alt="logo du site web"
-            />
+            <LogoDivision>
+              <Logo
+                src="../assets/images/logo.png"
+                href="/"
+                alt="logo du site web"
+              />
+            </LogoDivision>
             <Division className="right-header">
               <RedButton onClick={handleLogout}>
                 {isLoading ? <LoadingIcon /> : 'Déconnexion'}
