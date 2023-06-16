@@ -19,6 +19,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Header from '../components/ui/Header';
 import axios from 'axios';
+import { useState } from 'react';
 
 const FullPageDivision = styled.div`
   width: 100%;
@@ -77,32 +78,36 @@ const schema = z
     path: ['confirmPassword'],
   });
 
-const onSubmit = (data, e) => {
-  e.preventDefault();
-  // Exclude confirmPassword field from the data.
-  axios
-    .post(
-      'http://localhost:4000/api/users/signup',
-      {
-        email: data.email,
-        password: data.password,
-      },
-      {
-        // Allow cookies in Axios.
-        withCredentials: true,
-      }
-    )
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
 const Signup = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) });
+
+  const [emailError, setEmailError] = useState('');
+
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    // Exclude confirmPassword field from the data.
+    axios
+      .post(
+        'http://localhost:4000/api/users/signup',
+        {
+          email: data.email,
+          password: data.password,
+        },
+        {
+          // Allow cookies in Axios.
+          withCredentials: true,
+        }
+      )
+      .catch((error) => {
+        if (error.response.data.errorEmail) {
+          setEmailError(error.response.data.errorEmail);
+        }
+      });
+  };
 
   return (
     <FullPageDivision>
@@ -122,11 +127,16 @@ const Signup = () => {
               />
             </FormControl>
             <StyledSpan>
-              {errors.email && (
+              {(errors.email && (
                 <StyledSpan className="error-message">
                   {errors.email?.message}
                 </StyledSpan>
-              )}
+              )) ||
+                (emailError && (
+                  <StyledSpan className="error-message">
+                    {emailError}
+                  </StyledSpan>
+                ))}
             </StyledSpan>
           </FormField>
 

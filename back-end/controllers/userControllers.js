@@ -12,7 +12,9 @@ const createUser = async (req, res) => {
     const user = await userModels.createUser(email, password);
     res.status(201);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    if (error.message === 'Email déjà utilisé') {
+      res.status(400).json({ errorEmail: error.message });
+    }
   }
 };
 
@@ -35,7 +37,13 @@ const loginUser = async (req, res) => {
       .status(201)
       .send();
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    if (error.message === 'Email inexistant') {
+      res.status(400).json({ errorEmail: error.message });
+    }
+
+    if (error.message === 'Mot de passe incorrect') {
+      res.status(400).json({ errorPassword: error.message });
+    }
   }
 };
 

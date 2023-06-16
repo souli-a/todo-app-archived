@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/userRoutes');
+const appRoutes = require('./routes/appRoutes');
 
 // Attach .env variables to process object in Node.js.
 require('dotenv').config();
@@ -16,7 +17,7 @@ const app = express();
 app.use(
   cors({
     origin: 'http://localhost:5173',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type'],
     credentials: true,
   })
@@ -31,6 +32,7 @@ app.use(cookieParser());
 
 // Get the routes from routes files that use express.Router() function.
 app.use('/api/users', userRoutes);
+app.use('/api/todos', appRoutes);
 
 // Link MongoDB with mongoose.
 mongoose

@@ -62,14 +62,17 @@ const StyledCheckboxRoot = styled(Checkbox.Root)`
   }
   &:active {
     background-color: ${themes.colors.checkboxRootActive};
-    box-shadow: ${themes.boxShadow.checkboxRoot} ${themes.colors.checkboxRootBorder};
+    box-shadow: ${themes.boxShadow.checkboxRoot}
+      ${themes.colors.checkboxRootBorder};
   }
   &:focus {
-    box-shadow: ${themes.boxShadow.checkboxRoot} ${themes.colors.checkboxRootBorder};
+    box-shadow: ${themes.boxShadow.checkboxRoot}
+      ${themes.colors.checkboxRootBorder};
   }
   &[data-state='checked'] {
     background-color: ${themes.colors.checkboxRootBgChecked};
-    box-shadow: ${themes.boxShadow.checkboxRoot} ${themes.colors.checkboxRootBorderChecked};
+    box-shadow: ${themes.boxShadow.checkboxRoot}
+      ${themes.colors.checkboxRootBorderChecked};
     &:hover {
       background-color: ${themes.colors.checkboxRootBgCheckedHover};
     }
@@ -92,7 +95,8 @@ const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
 
   background-color: ${themes.colors.todoCheckboxRootBg};
 
-  box-shadow: ${themes.boxShadow.todoCheckboxRoot} ${themes.colors.todoCheckboxRootBorder};
+  box-shadow: ${themes.boxShadow.todoCheckboxRoot}
+    ${themes.colors.todoCheckboxRootBorder};
   transition: ${themes.transition.todoCheckboxRoot};
   p {
     font-size: ${themes.fontSize.paragraphTodoCheckboxRoot};
@@ -103,21 +107,25 @@ const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
   }
   &:active {
     background-color: ${themes.colors.todoCheckboxRootBgActive};
-    box-shadow: ${themes.boxShadow.todoCheckboxRoot} ${themes.colors.todoCheckboxRootBorderActive};
+    box-shadow: ${themes.boxShadow.todoCheckboxRoot}
+      ${themes.colors.todoCheckboxRootBorderActive};
   }
   &[data-state='checked'] {
     background-color: ${themes.colors.todoCheckboxRootBgChecked};
     p {
-      text-decoration-line: ${themes.textDecorationLine.paragraphTodoCheckboxRootChecked};
+      text-decoration-line: ${themes.textDecorationLine
+        .paragraphTodoCheckboxRootChecked};
       color: ${themes.colors.paragraphTodoCheckboxRootChecked};
-      text-decoration-thickness: ${themes.textDecorationThickness.paragraphTodoCheckboxRootChecked};
+      text-decoration-thickness: ${themes.textDecorationThickness
+        .paragraphTodoCheckboxRootChecked};
     }
     &:hover {
       background-color: ${themes.colors.todoCheckboxRootBgCheckedHover};
     }
     &:active {
       background-color: ${themes.colors.todoCheckboxRootBgCheckedActive};
-      box-shadow: ${themes.boxShadow.todoCheckboxRoot} ${themes.colors.todoCheckboxRootBorderCheckedActive};
+      box-shadow: ${themes.boxShadow.todoCheckboxRoot}
+        ${themes.colors.todoCheckboxRootBorderCheckedActive};
     }
   }
 `;
@@ -191,10 +199,14 @@ const CheckboxRoot = forwardRef(({ children, register }, ref) => {
   );
 });
 
-const TodoCheckboxRoot = ({ onClick, children }) => {
+const TodoCheckboxRoot = ({ onClick, children, ariaChecked, dataState }) => {
   return (
     <>
-      <StyledTodoCheckboxRoot onClick={onClick}>
+      <StyledTodoCheckboxRoot
+        onClick={onClick}
+        aria-checked={ariaChecked}
+        data-state={dataState}
+      >
         {children}
       </StyledTodoCheckboxRoot>
     </>

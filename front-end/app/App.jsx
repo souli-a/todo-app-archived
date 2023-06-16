@@ -8,20 +8,48 @@ import Todo from './Todo';
 import '../styles/Index.css';
 import Reset from '../styles/Reset.js';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import AuthContext from '../components/context/authContext';
+import Cookies from 'js-cookie';
 
 const App = () => {
+  const [isAuth, setIsAuth] = useState(null);
+
+  useEffect(() => {
+    if (!Cookies.get('access_token')) {
+      setIsAuth(false);
+    }
+    if (Cookies.get('access_token')) {
+      setIsAuth(true);
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <Reset />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/todo" element={<Todo />} />
-        <Route path="/privacy" element={<PolicyPrivacy />} />
-        <Route path="/terms" element={<TermsAndConditions />} />
-      </Routes>
+      <AuthContext.Provider value={{ isAuth, setIsAuth }}>
+        <Routes>
+          <Route
+            path="/"
+            element={!isAuth ? <Home /> : <Navigate to="/todo" />}
+          />
+          <Route
+            path="/signup"
+            element={!isAuth ? <Signup /> : <Navigate to="/todo" />}
+          />
+          <Route
+            path="/login"
+            element={!isAuth ? <Login /> : <Navigate to="/todo" />}
+          />
+          <Route
+            path="/todo"
+            element={isAuth ? <Todo /> : <Navigate to="/login" />}
+          />
+          <Route path="/privacy" element={<PolicyPrivacy />} />
+          <Route path="/terms" element={<TermsAndConditions />} />
+        </Routes>
+      </AuthContext.Provider>
     </BrowserRouter>
   );
 };
