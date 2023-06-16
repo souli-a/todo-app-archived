@@ -10,7 +10,20 @@ const createUser = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await userModels.createUser(email, password);
-    res.status(201);
+    const token = createToken(user._id);
+    const expiryDate = new Date(Date.now() + 60 * 60 * 1000);
+    res
+      .cookie('access_token', token, {
+        expires: expiryDate,
+        sameSite: 'strict',
+        // TODO: activate these options in production:
+        /*  secure: true,
+            httpOnly: true,
+            domain: 'localhost',
+            path: '/', */
+      })
+      .status(201)
+      .send();
   } catch (error) {
     if (error.message === 'Email déjà utilisé') {
       res.status(400).json({ errorEmail: error.message });

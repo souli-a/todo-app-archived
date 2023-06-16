@@ -22,6 +22,7 @@ import axios from 'axios';
 import { useContext, useState } from 'react';
 import LoadingIcon from '../components/ui/LoadingIcon';
 import useTitlePage from '../components/hooks/useTitlePage';
+import AuthContext from '../components/context/authContext';
 
 const FullPageDivision = styled.div`
   width: 100%;
@@ -87,6 +88,7 @@ const Signup = () => {
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) });
 
+  const { isAuth, setIsAuth } = useContext(AuthContext);
   const [emailError, setEmailError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -108,6 +110,9 @@ const Signup = () => {
           withCredentials: true,
         }
       )
+      .then(() => {
+        setIsAuth(true);
+      })
       .catch((error) => {
         if (error.response.data.errorEmail) {
           setEmailError(error.response.data.errorEmail);

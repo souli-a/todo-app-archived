@@ -72,9 +72,13 @@ const PasswordInput = forwardRef(
         />
         <PasswordButton onClick={togglePassword}>
           {passwordType === 'password' ? (
-            <Eye weight="regular" color={themes.colors.blackIcon} />
+            <Eye weight="regular" size={17} color={themes.colors.blackIcon} />
           ) : (
-            <EyeSlash weight="regular" color={themes.colors.blackIcon} />
+            <EyeSlash
+              weight="regular"
+              size={17}
+              color={themes.colors.blackIcon}
+            />
           )}
         </PasswordButton>
       </PasswordInputParentDivision>

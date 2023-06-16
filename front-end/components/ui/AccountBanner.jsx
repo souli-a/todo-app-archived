@@ -2,13 +2,14 @@ import { useState } from 'react';
 import Paragraph from './Paragraph';
 import { styled, keyframes } from 'styled-components';
 import { Info, X } from '@phosphor-icons/react';
+import { RoundedSeparator } from '../radix/RadixSeparator';
 import themes from '../../styles/Themes';
 
 const FullDivision = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  max-height: 3.5rem;
+  height: 4.5rem;
   padding: 0.5rem 1rem 0.5rem 1rem;
   color: #0e0e0e;
   background-color: #f1f1f1;
@@ -16,11 +17,16 @@ const FullDivision = styled.div`
 
 const LeftDivision = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
   margin: 0 auto;
 `;
 
 const RightDivision = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   :hover {
     background-color: #dfdfdf;
     border-radius: 0.4rem;
@@ -28,11 +34,10 @@ const RightDivision = styled.div`
 `;
 
 const StyledInfoIcon = styled(Info)`
-  margin-top: 0.15rem;
+  margin-right: -0.5rem;
 `;
 
 const StyledCloseButton = styled(X)`
-  margin-top: 0.15rem;
   cursor: pointer;
   padding: 0.1rem;
 `;
@@ -52,11 +57,10 @@ const AccountBanner = () => {
     <FullDivision>
       <LeftDivision>
         <StyledInfoIcon size={20} />
-        <Paragraph>-</Paragraph>
         <Paragraph>Compte par défaut</Paragraph>
-        <Paragraph>-</Paragraph>
+        <RoundedSeparator />
         <Paragraph>exemple@email.fr</Paragraph>
-        <Paragraph>-</Paragraph>
+        <RoundedSeparator />
         <Paragraph>123456</Paragraph>
       </LeftDivision>
       <RightDivision>
