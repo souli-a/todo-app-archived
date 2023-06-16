@@ -17,8 +17,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Header from '../components/ui/Header';
 import axios from 'axios';
 import AuthContext from '../components/context/authContext';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import LoadingIcon from '../components/ui/LoadingIcon';
+import DefaultAccount from '../components/ui/DefaultAccount';
 
 const FullPageDivision = styled.div`
   width: 100%;
@@ -72,6 +73,20 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSubmit(onSubmit)(e);
+    }
+  };
+
   const onSubmit = (data, e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -107,6 +122,7 @@ const Login = () => {
 
   return (
     <FullPageDivision>
+      <DefaultAccount />
       <Header />
       <Division>
         <FormRoot onSubmit={handleSubmit(onSubmit)}>
