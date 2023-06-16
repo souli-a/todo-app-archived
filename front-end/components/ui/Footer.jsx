@@ -21,6 +21,8 @@ const Footer = () => {
         <Link href="/privacy">Confidentialité</Link>
         <RoundedSeparator />
         <Link href="/terms">Conditions générales</Link>
+        <RoundedSeparator />
+        <Paragraph> Made with ❤️</Paragraph>
       </Division>
     </footer>
   );
