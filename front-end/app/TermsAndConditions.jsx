@@ -6,6 +6,7 @@ import Link from '../components/ui/Link';
 import OrderedList from '../components/ui/OrderedList';
 import Header from '../components/ui/Header';
 import Footer from '../components/ui/Footer';
+import useTitlePage from '../components/hooks/useTitlePage';
 
 const ParentDivision = styled.div`
   display: flex;
@@ -47,6 +48,8 @@ const ChildDivision2 = styled.div`
 `;
 
 const TermsAndConditions = () => {
+  useTitlePage({ title: "Conditions générales d'utilisation" });
+
   return (
     <ParentDivision>
       <Header />

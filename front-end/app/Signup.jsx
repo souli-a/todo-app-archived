@@ -21,6 +21,7 @@ import Header from '../components/ui/Header';
 import axios from 'axios';
 import { useContext, useState } from 'react';
 import LoadingIcon from '../components/ui/LoadingIcon';
+import useTitlePage from '../components/hooks/useTitlePage';
 
 const FullPageDivision = styled.div`
   width: 100%;
@@ -88,6 +89,8 @@ const Signup = () => {
 
   const [emailError, setEmailError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  useTitlePage({ title: 'Inscription' });
 
   const onSubmit = (data, e) => {
     e.preventDefault();

@@ -4,6 +4,7 @@ import { BigBlueButton } from '../components/ui/Button';
 import Header from '../components/ui/Header';
 import Footer from '../components/ui/Footer';
 import Bold from '../components/ui/Bold';
+import useTitlePage from '../components/hooks/useTitlePage';
 
 const ParentDivision = styled.div`
   display: flex;
@@ -30,6 +31,8 @@ const ChildDivision2 = styled.div`
 `;
 
 const Home = () => {
+  useTitlePage({ title: 'Accueil' });
+
   return (
     <ParentDivision>
       <Header />

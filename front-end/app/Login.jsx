@@ -19,7 +19,8 @@ import axios from 'axios';
 import AuthContext from '../components/context/authContext';
 import { useContext, useState, useEffect } from 'react';
 import LoadingIcon from '../components/ui/LoadingIcon';
-import DefaultAccount from '../components/ui/DefaultAccount';
+import AccountBanner from '../components/ui/AccountBanner';
+import useTitlePage from '../components/hooks/useTitlePage';
 
 const FullPageDivision = styled.div`
   width: 100%;
@@ -73,6 +74,8 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  useTitlePage({ title: 'Connexion' });
+
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -122,7 +125,7 @@ const Login = () => {
 
   return (
     <FullPageDivision>
-      <DefaultAccount />
+      <AccountBanner />
       <Header />
       <Division>
         <FormRoot onSubmit={handleSubmit(onSubmit)}>

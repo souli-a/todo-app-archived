@@ -10,6 +10,7 @@ import {
 } from '../components/radix/RadixForm';
 import Card from '../components/ui/Card';
 import Header from '../components/ui/Header';
+import useTitlePage from '../components/hooks/useTitlePage';
 
 import { RedButton } from '../components/ui/Button';
 import { TrashSimple } from '@phosphor-icons/react';
@@ -97,6 +98,8 @@ const Todo = () => {
   const [inputValue, setInputValue] = useState('');
   const [remainingTasks, setRemainingTasks] = useState(0);
   const [doneTasks, setDoneTasks] = useState(0);
+
+  useTitlePage({ title: 'Todo' });
 
   useEffect(() => {
     const tasksTotal = todos.length;

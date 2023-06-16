@@ -8,7 +8,7 @@ const FullDivision = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: fit-content;
+  max-height: 3.5rem;
   padding: 0.5rem 1rem 0.5rem 1rem;
   color: #0e0e0e;
   background-color: #f1f1f1;
@@ -37,7 +37,7 @@ const StyledCloseButton = styled(X)`
   padding: 0.1rem;
 `;
 
-const DefaultAccount = () => {
+const AccountBanner = () => {
   const [isDeleted, setIsDeleted] = useState(false);
 
   const handleDelete = () => {
@@ -66,4 +66,4 @@ const DefaultAccount = () => {
   );
 };
 
-export default DefaultAccount;
+export default AccountBanner;
