@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import themes from '../styles/Themes';
-import { nanoid } from 'nanoid';
 import { useRef, useState, useEffect } from 'react';
 import Paragraph from '../components/ui/Paragraph';
 import { TodoInput } from '../components/ui/Input';
@@ -11,7 +10,6 @@ import {
 import Card from '../components/ui/Card';
 import Header from '../components/ui/Header';
 import useTitlePage from '../components/hooks/useTitlePage';
-
 import { RedButton } from '../components/ui/Button';
 import { TrashSimple } from '@phosphor-icons/react';
 import Tag from '../components/ui/Tag';
@@ -29,10 +27,22 @@ const ParentDivision = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 10rem;
+
+  @media (max-width: 600px) {
+    margin-top: 5rem;
+  }
 `;
 
 const Division = styled.div`
   width: 50rem;
+
+  @media (max-width: 600px) {
+    width: 30rem;
+  }
+
+  @media (max-width: 370px) {
+    width: 20rem;
+  }
 `;
 
 const CounterDivision = styled.div`
@@ -40,7 +50,14 @@ const CounterDivision = styled.div`
   gap: 2.5rem;
   width: 100%;
   margin-bottom: 5rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 4rem;
+  }
 `;
+
+const StyledTodoInput = styled(TodoInput)``;
 
 const InputDivision = styled.div`
   width: 100%;
@@ -52,6 +69,18 @@ const StyledTag = styled(Tag)`
     position: absolute;
     margin-left: 42rem;
     margin-top: 1.7rem;
+  }
+
+  @media (max-width: 600px) {
+    &.tag-keybinds {
+      margin-left: 22rem;
+    }
+  }
+
+  @media (max-width: 370px) {
+    &.tag-keybinds {
+      margin-left: 12rem;
+    }
   }
 `;
 
@@ -220,10 +249,10 @@ const Todo = () => {
       <ParentDivision>
         <Division>
           <InputDivision>
-            <TodoInput
+            <StyledTodoInput
               onChange={handleChange}
               onKeyDown={handleKeyDown}
-              placeholder="+ Ajouter une tâche ― Appuyer sur Entrée ✌️"
+              placeholder="+ Appuie sur Entrée ✌️"
               value={inputValue}
               ref={inputRef}
               maxLength="40"
@@ -244,7 +273,7 @@ const Todo = () => {
                   </Tasks>
                   <RedButton onClick={() => handleDelete(todo._id)}>
                     <TrashSimple
-                      size={32}
+                      size={18}
                       weight="fill"
                       color={themes.colors.whiteIcon}
                     />

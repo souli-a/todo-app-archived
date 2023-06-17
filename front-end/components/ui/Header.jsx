@@ -18,13 +18,15 @@ const Division = styled.div`
     display: flex;
     gap: 1rem;
   }
+
   @media (max-width: 600px) {
     padding: 2rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: nowrap;
   }
+
   @media (max-width: 370px) {
     padding: 2rem;
     display: flex;
@@ -38,12 +40,7 @@ const Division = styled.div`
   }
 `;
 
-const LogoDivision = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-`;
+const LogoDivision = styled.div``;
 
 const Header = () => {
   const { isAuth, setIsAuth } = useContext(AuthContext);

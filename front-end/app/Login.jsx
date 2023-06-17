@@ -34,6 +34,9 @@ const Division = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: 600px) {
+    margin-top: 5rem;
+  }
 `;
 
 const StyledSpan = styled.span`
@@ -50,15 +53,15 @@ const schema = z.object({
   email: z
     .string()
     .toLowerCase()
-    .min(1, { message: 'Un e-mail est obligatoire' })
-    .email({ message: 'Un e-mail valide est obligatoire' }),
+    .min(1, { message: 'Email obligatoire' })
+    .email({ message: 'Email valide obligatoire' }),
   password: z
     .string()
     .min(1, {
-      message: 'Un mot de passe est obligatoire',
+      message: 'Mot de passe obligatoire',
     })
     .min(6, {
-      message: 'Un mot de passe doit contenir au minimum 6 caractères',
+      message: '6 caractères au minimum',
     }),
 });
 

@@ -18,14 +18,18 @@ const ChildDivision1 = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  width: 100%;
   margin-top: 3rem;
+  padding: 5rem;
+  @media (max-width: 700px) {
+    display: block;
+    word-wrap: break-word;
+  }
 `;
 
 const ChildDivision2 = styled.div`
   display: flex;
   flex-direction: column;
-  width: 65rem;
+  max-width: 65rem;
   h1 {
     margin-bottom: 2rem;
   }

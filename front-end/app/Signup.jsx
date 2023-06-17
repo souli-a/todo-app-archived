@@ -48,36 +48,42 @@ const StyledSpan = styled.span`
   }
 `;
 
+const StyledFormRoot = styled(FormRoot)``;
+
+const StyledPasswordInput = styled(PasswordInput)``;
+
+const StyledInput = styled(Input)``;
+
 const schema = z
   .object({
     email: z
       .string()
       .toLowerCase()
-      .min(1, { message: 'Un email est obligatoire' })
-      .email({ message: 'Un e-mail valide est obligatoire' })
-      .min(10, { message: "L'email doit contenir 10 caractères au minimum" })
-      .max(40, { message: "L'email doit contenir 40 caractères au maximum" }),
+      .min(1, { message: 'Email obligatoire' })
+      .email({ message: 'Email valide obligatoire' })
+      .min(10, { message: '10 caractères au minimum' })
+      .max(40, { message: 'caractères au maximum' }),
     password: z
       .string()
-      .min(1, { message: 'Un mot de passe est obligatoire' })
+      .min(1, { message: 'Mot de passe obligatoire' })
       .min(6, {
-        message: 'Le mot de passe doit contenir 6 caractères au minimum',
+        message: '6 caractères au minimum',
       })
       .max(25, {
-        message: 'Le mot de passe doit contenir 25 caractères au maximum',
+        message: '25 caractères au maximum',
       }),
     confirmPassword: z
       .string()
-      .min(1, { message: 'Le mot de passe de confirmation est obligatoire' })
+      .min(1, { message: 'Confirmation obligatoire' })
       .min(6, {
-        message: 'Le mot de passe doit contenir 6 caractères au minimum',
+        message: '6 caractères au minimum',
       })
       .max(25, {
-        message: 'Le mot de passe doit contenir 25 caractères au maximum',
+        message: '25 caractères au maximum',
       }),
   })
   .refine((schema) => schema.password === schema.confirmPassword, {
-    message: 'Les deux mots de passe doivent être similaires',
+    message: 'Les deux doivent être identiques',
     path: ['confirmPassword'],
   });
 
@@ -127,13 +133,13 @@ const Signup = () => {
     <FullPageDivision>
       <Header />
       <Division>
-        <FormRoot onSubmit={handleSubmit(onSubmit)}>
+        <StyledFormRoot onSubmit={handleSubmit(onSubmit)}>
           <Title2>Inscription</Title2>
 
           <FormField name="email">
             <FormLabel>Email</FormLabel>
             <FormControl>
-              <Input
+              <StyledInput
                 type="email"
                 placeholder="exemple@email.fr"
                 autoComplete="email"
@@ -157,7 +163,7 @@ const Signup = () => {
           <FormField name="password">
             <FormLabel>Mot de passe</FormLabel>
             <FormControl>
-              <PasswordInput
+              <StyledPasswordInput
                 type="password"
                 placeholder="Mot de passe"
                 autoComplete="new-password"
@@ -205,7 +211,7 @@ const Signup = () => {
               {isLoading ? <LoadingIcon /> : "S'inscrire"}
             </BigBlueButton>
           </FormSubmit>
-        </FormRoot>
+        </StyledFormRoot>
       </Division>
     </FullPageDivision>
   );

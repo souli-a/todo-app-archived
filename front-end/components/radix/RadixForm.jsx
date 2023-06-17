@@ -11,11 +11,21 @@ const StyledFormRoot = styled(Form.Root)`
   color: ${themes.colors.formRoot};
   font-weight: ${themes.fontWeight.formRoot};
   border-radius: ${themes.borderRadius.formRoot};
+
   & > *:not(:nth-last-child(2)) {
     margin-bottom: ${themes.marginBottom.formRootNotLastChild};
   }
+
   & > *:last-child {
     margin-top: ${themes.marginTop.formRootLastChild};
+  }
+
+  @media (max-width: 600px) {
+    width: 30rem;
+  }
+
+  @media (max-width: 370px) {
+    width: 20rem;
   }
 `;
 
@@ -30,6 +40,10 @@ const StyledFormFieldTerms = styled(Form.Field)`
   height: ${themes.height.formFieldTerms};
   margin: ${themes.margin.formFieldTerms};
   align-items: ${themes.alignItems.formFieldTerms};
+
+  @media (max-width: 380px) {
+    margin: 2rem 0 -2rem 0;
+  }
 `;
 
 const StyledFormLabel = styled(Form.Label)`

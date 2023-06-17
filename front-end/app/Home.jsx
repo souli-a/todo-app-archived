@@ -29,6 +29,7 @@ const ChildDivision2 = styled.div`
   > h2 {
     margin-top: -2rem;
   }
+
   @media (max-width: 700px) {
     display: flex;
     justify-content: center;
@@ -37,6 +38,7 @@ const ChildDivision2 = styled.div`
     text-align: center;
     margin: 15rem 0 40rem 0;
   }
+
   @media (max-width: 370px) {
     margin: 5rem 0 10rem 0;
   }

@@ -12,6 +12,8 @@ const Division = styled.div`
   height: 100%;
   width: 100%;
   gap: 1rem;
+  word-wrap: break-word;
+  text-align: center;
 `;
 
 const PageNotFound = () => {
