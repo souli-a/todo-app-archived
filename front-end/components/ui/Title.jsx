@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import themes from '../../styles/Themes';
+import { themes, lightTheme } from '../../styles/Themes';
 
 const StyledTitle1 = styled.h1`
   font-size: ${themes.fontSize.title1};
-  color: ${themes.colors.black};
+  color: ${({ theme }) => theme.colorTitle};
   letter-spacing: ${themes.letterSpacing.title1};
   line-height: ${themes.lineHeight.title1};
   font-weight: ${themes.fontWeight.title1};
@@ -12,7 +12,7 @@ const StyledTitle1 = styled.h1`
 
 const StyledTitle2 = styled.h2`
   font-size: ${themes.fontSize.title2};
-  color: ${themes.colors.black};
+  color: ${({ theme }) => theme.colorTitle};
   letter-spacing: ${themes.letterSpacing.title2};
   line-height: ${themes.lineHeight.title2};
   font-weight: ${themes.fontWeight.title2};
@@ -21,7 +21,7 @@ const StyledTitle2 = styled.h2`
 
 const StyledTitle3 = styled.h3`
   font-size: ${themes.fontSize.title3};
-  color: ${themes.colors.black};
+  color: ${({ theme }) => theme.colorTitle};
   letter-spacing: ${themes.letterSpacing.title3};
   line-height: ${themes.lineHeight.title3};
   font-weight: ${themes.fontWeight.title3};

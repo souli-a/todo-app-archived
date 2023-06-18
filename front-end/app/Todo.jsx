@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import themes from '../styles/Themes';
+import { themes, lightTheme } from '../styles/Themes';
 import { useRef, useState, useEffect } from 'react';
 import Paragraph from '../components/ui/Paragraph';
 import { TodoInput } from '../components/ui/Input';
@@ -245,7 +245,6 @@ const Todo = () => {
 
   return (
     <FullContentDivision>
-      <Header />
       <ParentDivision>
         <Division>
           <InputDivision>
@@ -275,7 +274,7 @@ const Todo = () => {
                     <TrashSimple
                       size={18}
                       weight="fill"
-                      color={themes.colors.whiteIcon}
+                      color={lightTheme.whiteIcon}
                     />
                   </RedButton>
                 </TasksDivision>

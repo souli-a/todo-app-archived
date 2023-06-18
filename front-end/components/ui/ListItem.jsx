@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import themes from '../../styles/Themes';
+import { themes, lightTheme } from '../../styles/Themes';
 
 const StyledListItem = styled.li`
   font-size: ${themes.fontSize.listItem};
-  color: ${themes.colors.black};
+  color: ${({ theme }) => theme.colorList};
   letter-spacing: ${themes.letterSpacing.listItem};
   line-height: ${themes.lineHeight.listItem};
 `;

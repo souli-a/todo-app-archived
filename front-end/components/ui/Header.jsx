@@ -3,9 +3,11 @@ import { TransparentButton, BlueButton, RedButton } from './Button';
 import Logo from './Logo';
 import { HorizontalSeparator } from '../radix/RadixSeparator';
 import axios from 'axios';
-import AuthContext from '../context/authContext';
+import AuthContext from '../context/AuthContext';
 import { useContext, useState } from 'react';
 import LoadingIcon from '../../components/ui/LoadingIcon';
+import { Moon, SunDim } from '@phosphor-icons/react';
+import { lightTheme, darkTheme } from '../../styles/Themes';
 
 const Division = styled.div`
   height: fit-content;
@@ -19,7 +21,7 @@ const Division = styled.div`
     gap: 1rem;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 670px) {
     padding: 2rem;
     display: flex;
     align-items: center;
@@ -40,9 +42,7 @@ const Division = styled.div`
   }
 `;
 
-const LogoDivision = styled.div``;
-
-const Header = () => {
+const Header = ({ handleTheme, theme }) => {
   const { isAuth, setIsAuth } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -70,17 +70,24 @@ const Header = () => {
       {isAuth ? (
         <>
           <Division>
-            <LogoDivision>
+            <Division>
               <Logo
                 src="../assets/images/logo.png"
                 href="/"
                 alt="logo du site web"
               />
-            </LogoDivision>
+            </Division>
             <Division className="right-header">
               <RedButton onClick={handleLogout}>
                 {isLoading ? <LoadingIcon /> : 'Déconnexion'}
               </RedButton>
+              <TransparentButton onClick={handleTheme}>
+                {theme === lightTheme ? (
+                  <Moon size={18.3} weight="fill" />
+                ) : (
+                  <SunDim size={18.3} weight="fill" />
+                )}
+              </TransparentButton>
             </Division>
           </Division>
           <HorizontalSeparator />
@@ -100,6 +107,13 @@ const Header = () => {
               <BlueButton as="a" href="/signup">
                 S'inscrire
               </BlueButton>
+              <TransparentButton onClick={handleTheme}>
+                {theme === lightTheme ? (
+                  <Moon size={18.3} weight="fill" />
+                ) : (
+                  <SunDim size={18.3} weight="fill" />
+                )}
+              </TransparentButton>
             </Division>
           </Division>
           <HorizontalSeparator />

@@ -56,7 +56,6 @@ const PrivacyPolicy = () => {
 
   return (
     <ParentDivision>
-      <Header />
       <ChildDivision1>
         <ChildDivision2>
           <Title1>Politique de confidentialité</Title1>

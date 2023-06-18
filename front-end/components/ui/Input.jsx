@@ -1,28 +1,29 @@
 import styled from 'styled-components';
-import themes from '../../styles/Themes';
+import { themes, lightTheme } from '../../styles/Themes';
 import { forwardRef } from 'react';
 
 const StyledInput = styled.input`
   font-size: ${themes.fontSize.input};
   border-radius: ${themes.borderRadius.input};
-  background-color: ${themes.colors.inputBg};
+  background-color: ${lightTheme.inputBg};
   padding: ${themes.padding.input};
   transition: ${themes.transition.input};
   height: ${themes.height.input};
   width: ${themes.width.input};
+  color: ${({ theme }) => theme.colorInput};
   &::placeholder {
-    color: ${themes.colors.inputPlaceholder};
+    color: ${lightTheme.inputPlaceholder};
   }
   &:focus {
-    box-shadow: ${themes.boxShadow.input} ${themes.colors.inputBg};
-    background-color: ${themes.colors.inputBgNone};
+    box-shadow: ${themes.boxShadow.input} ${lightTheme.inputBg};
+    background-color: ${lightTheme.inputBgNone};
     &::placeholder {
-      color: ${themes.colors.inputPlaceholderFocus};
+      color: ${lightTheme.inputPlaceholderFocus};
     }
   }
   &:not(:placeholder-shown) {
-    box-shadow: ${themes.boxShadow.input} ${themes.colors.inputBg};
-    background-color: ${themes.colors.inputBgNone};
+    box-shadow: ${themes.boxShadow.input} ${lightTheme.inputBg};
+    background-color: ${lightTheme.inputBgNone};
   }
 `;
 

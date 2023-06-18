@@ -22,7 +22,7 @@ import axios from 'axios';
 import { useContext, useState } from 'react';
 import LoadingIcon from '../components/ui/LoadingIcon';
 import useTitlePage from '../components/hooks/useTitlePage';
-import AuthContext from '../components/context/authContext';
+import AuthContext from '../components/context/AuthContext';
 
 const FullPageDivision = styled.div`
   width: 100%;
@@ -131,7 +131,6 @@ const Signup = () => {
 
   return (
     <FullPageDivision>
-      <Header />
       <Division>
         <StyledFormRoot onSubmit={handleSubmit(onSubmit)}>
           <Title2>Inscription</Title2>

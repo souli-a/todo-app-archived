@@ -49,7 +49,6 @@ const Home = () => {
 
   return (
     <ParentDivision>
-      <Header />
       <ChildDivision1>
         <ChildDivision2>
           <Title1>

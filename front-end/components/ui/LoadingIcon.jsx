@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import themes from '../../styles/Themes';
 
 const StyledLoadingIcon = styled.div`
   .bouncing-loader {

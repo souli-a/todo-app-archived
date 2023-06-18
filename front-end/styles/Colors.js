@@ -5,6 +5,7 @@ const colors = {
   pureWhite: '#FFFFFF',
 
   black: '#303030',
+  dark: '#000000',
   white: '#FDFDFD',
 
   red1: '#FF9999',

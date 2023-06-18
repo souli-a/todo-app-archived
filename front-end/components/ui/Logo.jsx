@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import themes from '../../styles/Themes';
+import { themes, lightTheme } from '../../styles/Themes';
 import Link from './Link';
 
 const Image = styled.img`
   width: ${themes.width.image};
   transition: ${themes.transition.logo};
+  filter: ${({ theme }) => theme.bgColorLogo};
   &:hover {
     opacity: ${themes.opacity.logoHover};
   }

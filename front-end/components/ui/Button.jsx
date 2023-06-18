@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import themes from '../../styles/Themes';
+import { themes, lightTheme } from '../../styles/Themes';
 import { forwardRef } from 'react';
 
 const StyledBlueButton = styled.button`
   font-size: ${themes.fontSize.button};
-  background-color: ${themes.colors.blueBg};
-  color: ${themes.colors.white};
+  background-color: ${lightTheme.blueBg};
+  color: ${lightTheme.white};
   border-radius: ${themes.borderRadius.button};
   padding: ${themes.padding.button};
   font-weight: ${themes.fontWeight.button};
@@ -16,14 +16,14 @@ const StyledBlueButton = styled.button`
   justify-content: ${themes.justifyContent.button};
   align-items: ${themes.alignItems.button};
   &:hover {
-    background-color: ${themes.colors.blueHover};
+    background-color: ${lightTheme.blueHover};
   }
   &:active {
-    background-color: ${themes.colors.blueActive};
-    box-shadow: ${themes.boxShadow.button} ${themes.colors.blueBorder};
+    background-color: ${lightTheme.blueActive};
+    box-shadow: ${themes.boxShadow.button} ${lightTheme.blueBorder};
   }
   &:focus {
-    box-shadow: ${themes.boxShadow.button} ${themes.colors.blueBorder};
+    box-shadow: ${themes.boxShadow.button} ${lightTheme.blueBorder};
   }
 `;
 
@@ -33,32 +33,34 @@ const StyledBigBlueButton = styled(StyledBlueButton)`
 `;
 
 const StyledTransparentButton = styled(StyledBlueButton)`
-  background-color: ${themes.colors.none};
-  color: ${themes.colors.black};
+  background-color: ${({ theme }) => theme.bgColorTransparentButton};
+  color: ${({ theme }) => theme.colorTransparentButton};
   &:hover {
-    background-color: ${themes.colors.transparentHover};
+    background-color: ${({ theme }) => theme.bgColorTransparentButtonHover};
   }
   &:active {
-    background-color: ${themes.colors.transparentActive};
-    box-shadow: ${themes.boxShadow.button} ${themes.colors.transparentBorder};
+    background-color: ${({ theme }) => theme.bgColorTransparentButtonActive};
+    box-shadow: ${themes.boxShadow.button}
+      ${({ theme }) => theme.colorBorderTransparentButton};
   }
   &:focus {
-    box-shadow: ${themes.boxShadow.button} ${themes.colors.transparentBorder};
+    box-shadow: ${themes.boxShadow.button}
+      ${({ theme }) => theme.colorBorderTransparentButton};
   }
 `;
 
 const StyledGreenButton = styled(StyledBlueButton)`
-  background-color: ${themes.colors.greenBg};
-  color: ${themes.colors.white};
+  background-color: ${lightTheme.greenBg};
+  color: ${lightTheme.white};
   &:hover {
-    background-color: ${themes.colors.greenHover};
+    background-color: ${lightTheme.greenHover};
   }
   &:active {
-    background-color: ${themes.colors.greenActive};
-    box-shadow: ${themes.boxShadow.button} ${themes.colors.greenBorder};
+    background-color: ${lightTheme.greenActive};
+    box-shadow: ${themes.boxShadow.button} ${lightTheme.greenBorder};
   }
   &:focus {
-    box-shadow: ${themes.boxShadow.button} ${themes.colors.greenBorder};
+    box-shadow: ${themes.boxShadow.button} ${lightTheme.greenBorder};
   }
 `;
 
@@ -68,46 +70,46 @@ const StyledBigGreenButton = styled(StyledGreenButton)`
 `;
 
 const StyledRedButton = styled(StyledBlueButton)`
-  background-color: ${themes.colors.redBg};
+  background-color: ${lightTheme.redBg};
   &:hover {
-    background-color: ${themes.colors.redHover};
+    background-color: ${lightTheme.redHover};
   }
   &:active {
-    background-color: ${themes.colors.redActive};
-    box-shadow: ${themes.boxShadow.button} ${themes.colors.redBorder};
+    background-color: ${lightTheme.redActive};
+    box-shadow: ${themes.boxShadow.button} ${lightTheme.redBorder};
   }
   &:focus {
-    box-shadow: ${themes.boxShadow.button} ${themes.colors.redBorder};
+    box-shadow: ${themes.boxShadow.button} ${lightTheme.redBorder};
   }
 `;
 
 const StyledGreyButton = styled(StyledBlueButton)`
-  background-color: ${themes.colors.greyBg};
-  color: ${themes.colors.black};
+  background-color: ${lightTheme.greyBg};
+  color: ${lightTheme.black};
   &:hover {
-    background-color: ${themes.colors.greyHover};
+    background-color: ${lightTheme.greyHover};
   }
   &:active {
-    background-color: ${themes.colors.greyActive};
-    box-shadow: ${themes.boxShadow.button} ${themes.colors.greyBorder};
+    background-color: ${lightTheme.greyActive};
+    box-shadow: ${themes.boxShadow.button} ${lightTheme.greyBorder};
   }
   &:focus {
-    box-shadow: ${themes.boxShadow.button} ${themes.colors.greyBorder};
+    box-shadow: ${themes.boxShadow.button} ${lightTheme.greyBorder};
   }
 `;
 
 const StyledPasswordButton = styled(StyledGreyButton)`
-  background-color: ${themes.colors.passwordButtonBg};
+  background-color: ${lightTheme.passwordButtonBg};
   display: ${themes.display.passwordButton};
   justify-content: ${themes.justifyContent.passwordButton};
   align-items: ${themes.alignItems.passwordButton};
   border-radius: ${themes.borderRadius.passwordButton};
   box-shadow: ${themes.boxShadow.passwordButton};
   &:hover {
-    background-color: ${themes.colors.passwordButtonBgHover};
+    background-color: ${lightTheme.passwordButtonBgHover};
   }
   &:active {
-    background-color: ${themes.colors.passwordButtonBgActive};
+    background-color: ${lightTheme.passwordButtonBgActive};
   }
   &:active,
   &:focus {
@@ -115,10 +117,10 @@ const StyledPasswordButton = styled(StyledGreyButton)`
   }
 `;
 
-const BlueButton = ({ as, href, children }) => {
+const BlueButton = ({ onClick, as, href, children }) => {
   return (
     <>
-      <StyledBlueButton as={as} href={href}>
+      <StyledBlueButton onClick={onClick} as={as} href={href}>
         {children}
       </StyledBlueButton>
     </>
@@ -135,10 +137,10 @@ const BigBlueButton = forwardRef(({ type, as, href, children }, ref) => {
   );
 });
 
-const TransparentButton = ({ as, href, children }) => {
+const TransparentButton = ({ onClick, as, href, children }) => {
   return (
     <>
-      <StyledTransparentButton as={as} href={href}>
+      <StyledTransparentButton onClick={onClick} as={as} href={href}>
         {children}
       </StyledTransparentButton>
     </>

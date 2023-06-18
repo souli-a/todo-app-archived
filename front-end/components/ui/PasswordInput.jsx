@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import themes from '../../styles/Themes';
+import { themes, lightTheme } from '../../styles/Themes';
 import { Eye, EyeSlash } from '@phosphor-icons/react';
 import { PasswordButton } from './Button';
 import { useState } from 'react';
@@ -9,29 +9,30 @@ const StyledPasswordInput = styled.input`
   font-size: ${themes.fontSize.input};
   border-radius: ${themes.borderRadius.passwordInput};
   height: ${themes.height.input};
-  background-color: ${themes.colors.inputBg};
+  background-color: ${lightTheme.inputBg};
   padding: ${themes.padding.input};
   transition: ${themes.transition.input};
   width: ${themes.width.input};
+  color: ${({ theme }) => theme.colorInput};
   &::placeholder {
-    color: ${themes.colors.inputPlaceholder};
+    color: ${lightTheme.inputPlaceholder};
   }
   &:focus {
-    box-shadow: ${themes.boxShadow.input} ${themes.colors.inputBg};
-    background-color: ${themes.colors.inputBgNone};
+    box-shadow: ${themes.boxShadow.input} ${lightTheme.inputBg};
+    background-color: ${lightTheme.inputBgNone};
     &::placeholder {
-      color: ${themes.colors.inputPlaceholderFocus};
+      color: ${lightTheme.inputPlaceholderFocus};
     }
   }
   &:not(:placeholder-shown) {
-    box-shadow: ${themes.boxShadow.input} ${themes.colors.inputBg};
-    background-color: ${themes.colors.inputBgNone};
+    box-shadow: ${themes.boxShadow.input} ${lightTheme.inputBg};
+    background-color: ${lightTheme.inputBgNone};
   }
   &:focus + button {
-    box-shadow: ${themes.boxShadow.input} ${themes.colors.inputBg};
+    box-shadow: ${themes.boxShadow.input} ${lightTheme.inputBg};
   }
   &:not(:placeholder-shown) + button {
-    box-shadow: ${themes.boxShadow.input} ${themes.colors.inputBg};
+    box-shadow: ${themes.boxShadow.input} ${lightTheme.inputBg};
   }
 `;
 
@@ -72,13 +73,9 @@ const PasswordInput = forwardRef(
         />
         <PasswordButton onClick={togglePassword}>
           {passwordType === 'password' ? (
-            <Eye weight="regular" size={17} color={themes.colors.blackIcon} />
+            <Eye weight="regular" size={17} color={lightTheme.blackIcon} />
           ) : (
-            <EyeSlash
-              weight="regular"
-              size={17}
-              color={themes.colors.blackIcon}
-            />
+            <EyeSlash weight="regular" size={17} color={lightTheme.blackIcon} />
           )}
         </PasswordButton>
       </PasswordInputParentDivision>

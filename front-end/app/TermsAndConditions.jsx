@@ -56,7 +56,6 @@ const TermsAndConditions = () => {
 
   return (
     <ParentDivision>
-      <Header />
       <ChildDivision1>
         <ChildDivision2>
           <Title1>Conditions générales d'utilisation</Title1>

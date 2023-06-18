@@ -197,93 +197,229 @@ const themes = {
     todoCheckboxRoot:
       'background-color .12s ease-in-out, color .12s ease-in-out, box-shadow .12s ease-in-out',
   },
-  colors: {
-    white: colors.white,
-    black: colors.black,
-    none: colors.none,
-
-    blueBg: colors.blue4,
-    blueHover: colors.blue5,
-    blueActive: colors.blue6,
-    blueBorder: colors.blue1,
-
-    greyBg: colors.grey2,
-    greyHover: colors.grey3,
-    greyActive: colors.grey4,
-    greyBorder: colors.grey1,
-
-    transparentBg: colors.none,
-    transparentHover: colors.grey1,
-    transparentActive: colors.grey2,
-    transparentBorder: colors.grey1,
-
-    redBg: colors.red4,
-    redHover: colors.red5,
-    redActive: colors.red6,
-    redBorder: colors.red1,
-
-    greenBg: colors.green4,
-    greenHover: colors.green5,
-    greenActive: colors.green6,
-    greenBorder: colors.green1,
-
-    inputPlaceholder: colors.grey6,
-    inputPlaceholderFocus: colors.grey4,
-    inputBg: colors.grey1,
-    inputBgNone: colors.none,
-
-    link: colors.blue2,
-    linkHover: colors.blue4,
-    linkActive: colors.blue6,
-
-    formRoot: colors.black,
-
-    checkboxRootBg: colors.grey1,
-    checkboxRootHover: colors.grey2,
-    checkboxRootActive: colors.grey3,
-    checkboxRootBorder: colors.grey1,
-    checkboxRootBorderChecked: colors.grey1,
-    checkboxRootBgChecked: colors.none,
-    checkboxRootBgCheckedHover: colors.grey1,
-    checkboxRootBgCheckedActive: colors.grey2,
-
-    checkboxIndicatorBg: colors.green1,
-    checkboxIndicator: colors.green5,
-
-    formLabelTerms: colors.grey6,
-
-    bold: colors.pureBlack,
-
-    todoCheckboxRootBg: colors.none,
-    todoCheckboxRootBgHover: colors.grey1,
-    todoCheckboxRootBgActive: colors.grey2,
-
-    todoCheckboxRootBorder: colors.grey1,
-    todoCheckboxRootBorderActive: colors.grey1,
-
-    todoCheckboxRootBgChecked: colors.grey1,
-    todoCheckboxRootBgCheckedHover: colors.grey2,
-    todoCheckboxRootBgCheckedActive: colors.grey3,
-    todoCheckboxRootBorderCheckedActive: colors.grey2,
-
-    paragraphTodoCheckboxRootChecked: colors.grey5,
-
-    passwordButtonBg: colors.grey1,
-    passwordButtonBgHover: colors.grey2,
-    passwordButtonBgActive: colors.grey3,
-
-    blackIcon: colors.black,
-    whiteIcon: colors.white,
-
-    cardBg: colors.grey1,
-    card: colors.grey3,
-
-    roundedSeparatorBg: colors.black,
-    horizontalSeparatorBg: colors.grey2,
-
-    tag: colors.white,
-    tagBg: colors.grey4,
-  },
 };
 
-export default themes;
+const lightTheme = {
+  white: colors.white,
+  black: colors.black,
+  none: colors.none,
+
+  blueBg: colors.blue4,
+  blueHover: colors.blue5,
+  blueActive: colors.blue6,
+  blueBorder: colors.blue1,
+
+  greyBg: colors.grey2,
+  greyHover: colors.grey3,
+  greyActive: colors.grey4,
+  greyBorder: colors.grey1,
+
+  bgColorTransparentButton: colors.none,
+  bgColorTransparentButtonHover: colors.grey1,
+  bgColorTransparentButtonActive: colors.grey2,
+  colorBorderTransparentButton: colors.grey1,
+  colorTransparentButton: colors.black,
+
+  redBg: colors.red4,
+  redHover: colors.red5,
+  redActive: colors.red6,
+  redBorder: colors.red1,
+
+  greenBg: colors.green4,
+  greenHover: colors.green5,
+  greenActive: colors.green6,
+  greenBorder: colors.green1,
+
+  inputPlaceholder: colors.grey6,
+  inputPlaceholderFocus: colors.grey4,
+  inputBg: colors.grey1,
+  inputBgNone: colors.none,
+
+  link: colors.blue2,
+  linkHover: colors.blue4,
+  linkActive: colors.blue6,
+
+  colorFormRoot: colors.black,
+
+  checkboxRootBg: colors.grey1,
+  checkboxRootHover: colors.grey2,
+  checkboxRootActive: colors.grey3,
+  checkboxRootBorder: colors.grey1,
+  checkboxRootBorderChecked: colors.grey1,
+  checkboxRootBgChecked: colors.none,
+  checkboxRootBgCheckedHover: colors.grey1,
+  checkboxRootBgCheckedActive: colors.grey2,
+
+  checkboxIndicatorBg: colors.green1,
+  checkboxIndicator: colors.green5,
+
+  colorFormLabel: colors.grey6,
+
+  bgColorLogo: 'none',
+
+  bgColor: colors.transparent,
+
+  colorBold: colors.pureBlack,
+
+  bgColorTodoCheckboxRoot: colors.none,
+  bgColorTodoCheckboxRootHover: colors.grey1,
+  bgColorTodoCheckboxRootActive: colors.grey2,
+
+  todoCheckboxRootBorder: colors.grey1,
+  todoCheckboxRootBorderActive: colors.grey1,
+
+  bgColorTodoCheckboxRootChecked: colors.grey1,
+  bgColorTodoCheckboxRootCheckedHover: colors.grey2,
+  bgColorTodoCheckboxRootCheckedActive: colors.grey3,
+  todoCheckboxRootBorderCheckedActive: colors.grey2,
+
+  colorParagraphTodoCheckboxRootChecked: colors.grey5,
+  colorParagraphTodoCheckboxRoot: colors.black,
+
+  passwordButtonBg: colors.grey1,
+  passwordButtonBgHover: colors.grey2,
+  passwordButtonBgActive: colors.grey3,
+
+  blackIcon: colors.black,
+  whiteIcon: colors.white,
+
+  cardBg: colors.grey1,
+  card: colors.grey3,
+
+  colorRoundedSeparator: colors.black,
+  colorHorizontalSeparator: colors.grey2,
+
+  tag: colors.white,
+  tagBg: colors.grey4,
+
+  colorTitle: colors.black,
+
+  colorCaret: colors.black,
+
+  colorInput: colors.black,
+
+  colorParagraph: colors.black,
+
+  colorList: colors.black,
+
+  bgColorAccountBanner: colors.grey1,
+  bgColorIconAccountBanner: colors.black,
+  bgColorDivIconAccountBannerHover: colors.grey2,
+  bgColorDivIconAccountBannerActive: colors.grey3,
+};
+
+const darkTheme = {
+  white: colors.white,
+  black: colors.black,
+  none: colors.none,
+
+  blueBg: colors.blue4,
+  blueHover: colors.blue5,
+  blueActive: colors.blue6,
+  blueBorder: colors.blue1,
+
+  greyBg: colors.grey2,
+  greyHover: colors.grey3,
+  greyActive: colors.grey4,
+  greyBorder: colors.grey1,
+
+  bgColorTransparentButton: colors.none,
+  bgColorTransparentButtonHover: colors.grey4,
+  bgColorTransparentButtonActive: colors.grey5,
+  colorBorderTransparentButton: colors.grey4,
+  colorTransparentButton: colors.white,
+
+  transparentBg: colors.none,
+  transparentHover: colors.grey1,
+  transparentActive: colors.grey2,
+  transparentBorder: colors.grey1,
+
+  redBg: colors.red4,
+  redHover: colors.red5,
+  redActive: colors.red6,
+  redBorder: colors.red1,
+
+  greenBg: colors.green4,
+  greenHover: colors.green5,
+  greenActive: colors.green6,
+  greenBorder: colors.green1,
+
+  inputPlaceholder: colors.grey6,
+  inputPlaceholderFocus: colors.grey4,
+  inputBg: colors.grey1,
+  inputBgNone: colors.none,
+
+  link: colors.blue2,
+  linkHover: colors.blue4,
+  linkActive: colors.blue6,
+
+  colorFormRoot: colors.white,
+
+  checkboxRootBg: colors.grey1,
+  checkboxRootHover: colors.grey2,
+  checkboxRootActive: colors.grey3,
+  checkboxRootBorder: colors.grey1,
+  checkboxRootBorderChecked: colors.grey1,
+  checkboxRootBgChecked: colors.none,
+  checkboxRootBgCheckedHover: colors.grey1,
+  checkboxRootBgCheckedActive: colors.grey2,
+
+  checkboxIndicatorBg: colors.green1,
+  checkboxIndicator: colors.green5,
+
+  formLabelTerms: colors.grey6,
+
+  bgColorLogo: 'invert(100%)',
+
+  bgColor: colors.dark,
+
+  colorBold: colors.white,
+
+  bgColorTodoCheckboxRoot: colors.grey1,
+  bgColorTodoCheckboxRootHover: colors.grey3,
+  bgColorTodoCheckboxRootActive: colors.grey4,
+
+  todoCheckboxRootBorder: colors.grey1,
+  todoCheckboxRootBorderActive: colors.grey1,
+
+  bgColorTodoCheckboxRootChecked: colors.dark,
+  bgColorTodoCheckboxRootCheckedHover: colors.grey4,
+  bgColorTodoCheckboxRootCheckedActive: colors.grey5,
+  todoCheckboxRootBorderCheckedActive: colors.grey6,
+
+  colorParagraphTodoCheckboxRootChecked: colors.white,
+  colorParagraphTodoCheckboxRoot: colors.black,
+
+  passwordButtonBg: colors.grey1,
+  passwordButtonBgHover: colors.grey2,
+  passwordButtonBgActive: colors.grey3,
+
+  blackIcon: colors.black,
+  whiteIcon: colors.white,
+
+  cardBg: colors.grey1,
+  card: colors.grey3,
+
+  colorRoundedSeparator: colors.grey1,
+  colorHorizontalSeparator: colors.grey6,
+
+  tag: colors.white,
+  tagBg: colors.grey4,
+
+  colorTitle: colors.white,
+
+  colorCaret: colors.white,
+
+  colorInput: colors.white,
+
+  colorParagraph: colors.white,
+
+  colorList: colors.white,
+
+  bgColorAccountBanner: colors.black,
+  bgColorIconAccountBanner: colors.grey1,
+  bgColorDivIconAccountBannerHover: colors.grey4,
+  bgColorDivIconAccountBannerActive: colors.grey6,
+};
+
+export { themes, darkTheme, lightTheme };

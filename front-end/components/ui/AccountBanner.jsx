@@ -10,8 +10,8 @@ const FullDivision = styled.div`
   flex-wrap: wrap;
   height: fit-content;
   padding: 1.5rem 1rem 1.5rem 1rem;
-  color: #0e0e0e;
-  background-color: #f1f1f1;
+  color: ${({ theme }) => theme.bgColorIconAccountBanner};
+  background-color: ${({ theme }) => theme.bgColorAccountBanner};
   white-space: nowrap;
   @media (max-width: 600px) {
     flex-direction: column-reverse;
@@ -34,8 +34,13 @@ const RightDivision = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0.4rem;
   :hover {
-    background-color: #dfdfdf;
+    background-color: ${({ theme }) => theme.bgColorDivIconAccountBannerHover};
+    border-radius: 0.4rem;
+  }
+  :active {
+    background-color: ${({ theme }) => theme.bgColorDivIconAccountBannerActive};
     border-radius: 0.4rem;
   }
 `;
@@ -67,13 +72,11 @@ const AccountBanner = () => {
   return (
     <FullDivision>
       <LeftDivision>
-        <StyledParagraph className="normal-text">
-          Compte par défaut
-        </StyledParagraph>
+        <StyledParagraph>Compte par défaut</StyledParagraph>
         <StyledInfoIcon size={20} />
-        <Paragraph className="normal-text">exemple@email.fr</Paragraph>
-        <StyledParagraph className="slash-text">/</StyledParagraph>
-        <Paragraph className="normal-text">123456</Paragraph>
+        <Paragraph>exemple@email.fr</Paragraph>
+        <StyledParagraph>/</StyledParagraph>
+        <Paragraph>123456</Paragraph>
       </LeftDivision>
       <RightDivision>
         <StyledCloseButton size={20} onClick={handleDelete} />

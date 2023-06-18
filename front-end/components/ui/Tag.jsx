@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import themes from '../../styles/Themes';
+import { themes, lightTheme } from '../../styles/Themes';
 
 const StyledTag = styled.div`
   display: ${themes.display.tag};
   justify-content: ${themes.justifyContent.tag};
   align-items: ${themes.alignItems.tag};
   font-size: ${themes.fontSize.tag};
-  color: ${themes.colors.tag};
+  color: ${lightTheme.tag};
   padding: ${themes.padding.tag};
-  background-color: ${themes.colors.tagBg};
+  background-color: ${lightTheme.tagBg};
   border-radius: ${themes.borderRadius.tag};
   width: ${themes.width.tag};
 `;

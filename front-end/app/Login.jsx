@@ -16,7 +16,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Header from '../components/ui/Header';
 import axios from 'axios';
-import AuthContext from '../components/context/authContext';
+import AuthContext from '../components/context/AuthContext';
 import { useContext, useState, useEffect } from 'react';
 import LoadingIcon from '../components/ui/LoadingIcon';
 import AccountBanner from '../components/ui/AccountBanner';
@@ -129,7 +129,6 @@ const Login = () => {
   return (
     <FullPageDivision>
       <AccountBanner />
-      <Header />
       <Division>
         <FormRoot onSubmit={handleSubmit(onSubmit)}>
           <Title2>Connexion</Title2>

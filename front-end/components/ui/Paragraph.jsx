@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import themes from '../../styles/Themes';
+import { themes, lightTheme } from '../../styles/Themes';
 
 const StyledParagraph = styled.p`
   font-size: ${themes.fontSize.paragraph};
-  color: ${themes.colors.black};
+  color: ${({ theme }) => theme.colorParagraph};
   letter-spacing: ${themes.letterSpacing.paragraph};
   line-height: ${themes.lineHeight.paragraph};
 `;

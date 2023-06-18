@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import themes from '../../styles/Themes';
+import { themes, lightTheme } from '../../styles/Themes';
 import Paragraph from './Paragraph';
 
 const StyledCard = styled.div`
@@ -8,11 +8,11 @@ const StyledCard = styled.div`
   align-items: ${themes.alignItems.card};
   width: ${themes.width.card};
   border-radius: ${themes.borderRadius.card};
-  background-color: ${themes.colors.cardBg};
+  background-color: ${lightTheme.cardBg};
   font-size: ${themes.fontSize.card};
   padding: ${themes.padding.card};
   & > p {
-    color: ${themes.colors.card};
+    color: ${lightTheme.card};
   }
 `;
 

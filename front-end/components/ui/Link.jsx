@@ -1,17 +1,17 @@
 import styled from 'styled-components';
-import themes from '../../styles/Themes';
+import { themes, lightTheme } from '../../styles/Themes';
 
 const StyledLink = styled.a`
   font-size: ${themes.fontSize.link};
-  color: ${themes.colors.link};
+  color: ${lightTheme.link};
   transition: ${themes.transition.link};
   &:hover {
-    color: ${themes.colors.linkHover};
+    color: ${lightTheme.linkHover};
     text-decoration: ${themes.textDecoration.link};
     cursor: ${themes.cursor.link};
   }
   &:active {
-    color: ${themes.colors.linkActive};
+    color: ${lightTheme.linkActive};
   }
 `;
 
