@@ -8,6 +8,7 @@ import { useContext, useState } from 'react';
 import LoadingIcon from '../../components/ui/LoadingIcon';
 import { Moon, SunDim } from '@phosphor-icons/react';
 import { lightTheme, darkTheme } from '../../styles/Themes';
+import logo from '../../assets/images/logo.png';
 
 const Division = styled.div`
   display: flex;
@@ -56,11 +57,7 @@ const Header = ({ handleTheme, theme }) => {
         <>
           <Division>
             <div className="left-header">
-              <Logo
-                src="../assets/images/logo.png"
-                href="/"
-                alt="logo du site web"
-              />
+              <Logo src={logo} href="/" alt="logo du site web" />
             </div>
             <div className="right-header">
               <RedButton onClick={handleLogout}>
