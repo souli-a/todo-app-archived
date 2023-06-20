@@ -14,7 +14,6 @@ import PasswordInput from '../components/ui/PasswordInput';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import Header from '../components/ui/Header';
 import axios from 'axios';
 import AuthContext from '../components/context/AuthContext';
 import { useContext, useState, useEffect } from 'react';
@@ -25,6 +24,9 @@ import useTitlePage from '../components/hooks/useTitlePage';
 const FullPageDivision = styled.div`
   width: 100%;
   height: 100%;
+  @media (max-width: 670px) {
+    height: fit-content;
+  }
 `;
 
 const Division = styled.div`
@@ -34,8 +36,8 @@ const Division = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @media (max-width: 600px) {
-    margin-top: 5rem;
+  @media (max-width: 440px) {
+    margin-top: 3rem;
   }
 `;
 
@@ -62,6 +64,9 @@ const schema = z.object({
     })
     .min(6, {
       message: '6 caractères au minimum',
+    })
+    .max(25, {
+      message: '25 caractères au maximum',
     }),
 });
 
@@ -96,7 +101,6 @@ const Login = () => {
   const onSubmit = (data, e) => {
     e.preventDefault();
     setIsLoading(true);
-    // Exclude confirmPassword field from the data.
     axios
       .post(
         'http://localhost:4000/api/users/login',
@@ -105,7 +109,6 @@ const Login = () => {
           password: data.password,
         },
         {
-          // Allow cookies in Axios.
           withCredentials: true,
         }
       )

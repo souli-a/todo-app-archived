@@ -9,11 +9,16 @@ const Division = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  height: 80%;
   width: 100%;
   gap: 1rem;
   word-wrap: break-word;
   text-align: center;
+  @media (max-width: 440px) {
+    display: block;
+    margin-top: 13rem;
+    height: fit-content;
+  }
 `;
 
 const PageNotFound = () => {
@@ -32,7 +37,3 @@ const PageNotFound = () => {
 };
 
 export default PageNotFound;
-
-// 404
-// Page non trouvée
-// La page que vous avez demandée n'existe pas.

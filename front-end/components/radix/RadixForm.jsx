@@ -11,19 +11,18 @@ const StyledFormRoot = styled(Form.Root)`
   color: ${({ theme }) => theme.colorFormRoot};
   font-weight: ${themes.fontWeight.formRoot};
   border-radius: ${themes.borderRadius.formRoot};
-
   & > *:not(:nth-last-child(2)) {
     margin-bottom: ${themes.marginBottom.formRootNotLastChild};
   }
-
   & > *:last-child {
     margin-top: ${themes.marginTop.formRootLastChild};
+    @media (max-width: 440px) {
+      margin-top: 3rem;
+    }
   }
-
-  @media (max-width: 600px) {
+  @media (max-width: 670px) {
     width: 30rem;
   }
-
   @media (max-width: 370px) {
     width: 20rem;
   }
@@ -40,10 +39,6 @@ const StyledFormFieldTerms = styled(Form.Field)`
   height: ${themes.height.formFieldTerms};
   margin: ${themes.margin.formFieldTerms};
   align-items: ${themes.alignItems.formFieldTerms};
-
-  @media (max-width: 380px) {
-    margin: 2rem 0 -2rem 0;
-  }
 `;
 
 const StyledFormLabel = styled(Form.Label)`
@@ -107,23 +102,19 @@ const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
   box-shadow: ${themes.boxShadow.todoCheckboxRoot}
     ${lightTheme.todoCheckboxRootBorder};
   transition: ${themes.transition.todoCheckboxRoot};
-
   p {
     font-size: ${themes.fontSize.paragraphTodoCheckboxRoot};
     overflow: ${themes.overflow.paragraphTodoCheckboxRoot};
     color: ${({ theme }) => theme.colorParagraphTodoCheckboxRoot};
   }
-
   &:hover {
     background-color: ${({ theme }) => theme.bgColorTodoCheckboxRootHover};
   }
-
   &:active {
     background-color: ${({ theme }) => theme.bgColorTodoCheckboxRootActive};
     box-shadow: ${themes.boxShadow.todoCheckboxRoot}
       ${lightTheme.todoCheckboxRootBorderActive};
   }
-
   &[data-state='checked'] {
     background-color: ${({ theme }) => theme.bgColorTodoCheckboxRootChecked};
 
@@ -134,12 +125,10 @@ const StyledTodoCheckboxRoot = styled(Checkbox.Root)`
       text-decoration-thickness: ${themes.textDecorationThickness
         .paragraphTodoCheckboxRootChecked};
     }
-
     &:hover {
       background-color: ${({ theme }) =>
         theme.bgColorTodoCheckboxRootCheckedHover};
     }
-
     &:active {
       background-color: ${({ theme }) =>
         theme.bgColorTodoCheckboxRootCheckedActive};

@@ -83,6 +83,15 @@ const StyledRedButton = styled(StyledBlueButton)`
   }
 `;
 
+const StyledRedButtonDelete = styled(StyledRedButton)`
+  position: ${themes.position.redButtonDelete};
+  margin: ${themes.margin.redButtonDelete};
+  border-radius: ${themes.borderRadius.redButtonDelete};
+  @media (max-width: 440px) {
+    margin: 0.55rem 0 0 14.9rem;
+  }
+`;
+
 const StyledGreyButton = styled(StyledBlueButton)`
   background-color: ${lightTheme.greyBg};
   color: ${lightTheme.black};
@@ -177,6 +186,16 @@ const RedButton = ({ as, href, children, onClick }) => {
   );
 };
 
+const RedButtonDelete = ({ as, href, children, onClick }) => {
+  return (
+    <>
+      <StyledRedButtonDelete onClick={onClick} as={as} href={href}>
+        {children}
+      </StyledRedButtonDelete>
+    </>
+  );
+};
+
 const GreyButton = ({ as, href, children }) => {
   return (
     <>
@@ -202,6 +221,7 @@ export {
   GreenButton,
   BigGreenButton,
   RedButton,
+  RedButtonDelete,
   GreyButton,
   PasswordButton,
 };

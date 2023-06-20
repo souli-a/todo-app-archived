@@ -4,7 +4,6 @@ import { Title1, Title2 } from '../components/ui/Title';
 import ListItem from '../components/ui/ListItem';
 import Link from '../components/ui/Link';
 import OrderedList from '../components/ui/OrderedList';
-import Header from '../components/ui/Header';
 import Footer from '../components/ui/Footer';
 import useTitlePage from '../components/hooks/useTitlePage';
 
@@ -20,9 +19,11 @@ const ChildDivision1 = styled.div`
   justify-content: center;
   margin-top: 3rem;
   padding: 5rem;
-  @media (max-width: 700px) {
+  @media (max-width: 440px) {
     display: block;
     word-wrap: break-word;
+    margin-top: -2rem;
+    margin-bottom: -4rem;
   }
 `;
 

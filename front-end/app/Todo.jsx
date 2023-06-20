@@ -8,104 +8,71 @@ import {
   TodoCheckboxIndicator,
 } from '../components/radix/RadixForm';
 import Card from '../components/ui/Card';
-import Header from '../components/ui/Header';
 import useTitlePage from '../components/hooks/useTitlePage';
-import { RedButton } from '../components/ui/Button';
+import { RedButtonDelete } from '../components/ui/Button';
 import { TrashSimple } from '@phosphor-icons/react';
 import Tag from '../components/ui/Tag';
 import axios from 'axios';
 
 const FullContentDivision = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5rem;
   width: 100%;
-  height: 100%;
+  @media (max-width: 440px) {
+    margin-top: 3rem;
+  }
 `;
 
 const ParentDivision = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  margin-top: 10rem;
-
-  @media (max-width: 600px) {
-    margin-top: 5rem;
-  }
-`;
-
-const Division = styled.div`
-  width: 50rem;
-
-  @media (max-width: 600px) {
-    width: 30rem;
-  }
-
-  @media (max-width: 370px) {
+  flex-direction: column;
+  width: 40rem;
+  @media (max-width: 440px) {
     width: 20rem;
   }
 `;
 
 const CounterDivision = styled.div`
   display: flex;
-  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   width: 100%;
-  margin-bottom: 5rem;
-
-  @media (max-width: 600px) {
+  gap: 3rem;
+  @media (max-width: 440px) {
     flex-direction: column;
-    gap: 4rem;
   }
 `;
-
-const StyledTodoInput = styled(TodoInput)``;
 
 const InputDivision = styled.div`
   width: 100%;
-  display: flex;
 `;
 
 const StyledTag = styled(Tag)`
-  &.tag-keybinds {
-    position: absolute;
-    margin-left: 42rem;
-    margin-top: 1.7rem;
-  }
-
-  @media (max-width: 600px) {
-    &.tag-keybinds {
-      margin-left: 22rem;
-    }
-  }
-
-  @media (max-width: 370px) {
-    &.tag-keybinds {
-      margin-left: 12rem;
-    }
+  position: absolute;
+  margin: 1.8rem 0 0 32rem;
+  @media (max-width: 440px) {
+    margin: 1.8rem 0 0 12.5rem;
   }
 `;
 
 const FullTasksDivision = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
   gap: 2rem;
   margin: 4rem 0 4rem 0;
+  width: 100%;
 `;
 
 const TasksDivision = styled.div`
   display: flex;
-  width: 100%;
   gap: 2rem;
-  height: 5rem;
-`;
-
-const ParentCounterDivision = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 4rem;
-  gap: 4rem;
 `;
 
 const Tasks = ({ children, onClick, dataState, ariaChecked }) => {
@@ -142,7 +109,6 @@ const Todo = () => {
   useEffect(() => {
     axios
       .get('http://localhost:4000/api/todos', {
-        // Allow cookies in Axios.
         withCredentials: true,
       })
       .then((res) => {
@@ -187,7 +153,6 @@ const Todo = () => {
             isDone: false,
           },
           {
-            // Allow cookies in Axios.
             withCredentials: true,
           }
         )
@@ -205,7 +170,6 @@ const Todo = () => {
   const handleDelete = (_id) => {
     axios
       .delete(`http://localhost:4000/api/todos/${_id}`, {
-        // Allow cookies in Axios.
         withCredentials: true,
       })
       .then((res) => {
@@ -228,15 +192,11 @@ const Todo = () => {
         `http://localhost:4000/api/todos/${_id}`,
         { isDone: todos[index].isDone },
         {
-          // Allow cookies in Axios.
           withCredentials: true,
         }
       )
       .then((res) => {
         setTodos(res.data);
-      })
-      .then(() => {
-        console.log(todos[index].isDone);
       })
       .catch((error) => {
         console.log(error);
@@ -246,55 +206,58 @@ const Todo = () => {
   return (
     <FullContentDivision>
       <ParentDivision>
-        <Division>
-          <InputDivision>
-            <StyledTodoInput
-              onChange={handleChange}
-              onKeyDown={handleKeyDown}
-              placeholder="+ Appuie sur Entrée ✌️"
-              value={inputValue}
-              ref={inputRef}
-              maxLength="40"
-            />
-            <StyledTag className="tag-keybinds">ctrl + k</StyledTag>
-          </InputDivision>
+        <InputDivision>
+          <StyledTag>ctrl + k</StyledTag>
+          <TodoInput
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            placeholder="+ Appuie sur Entrée ✌️"
+            value={inputValue}
+            ref={inputRef}
+            maxLength="40"
+          />
+        </InputDivision>
+        <FullTasksDivision>
           {todos.length > 0 && (
-            <FullTasksDivision>
-              {todos.map((todo) => (
-                <TasksDivision key={todo._id}>
-                  <Tasks
-                    className="tasks"
-                    onClick={() => handlePatch(todo._id)}
-                    ariaChecked={todo.isDone ? 'true' : 'false'}
-                    dataState={todo.isDone ? 'checked' : 'unchecked'}
-                  >
-                    {todo.content}
-                  </Tasks>
-                  <RedButton onClick={() => handleDelete(todo._id)}>
-                    <TrashSimple
-                      size={18}
-                      weight="fill"
-                      color={lightTheme.whiteIcon}
-                    />
-                  </RedButton>
-                </TasksDivision>
-              ))}
-            </FullTasksDivision>
+            <>
+              {todos
+                .slice(0)
+                .reverse()
+                .map((todo) => (
+                  <div key={todo._id}>
+                    <TasksDivision>
+                      <Tasks
+                        className="tasks"
+                        onClick={() => handlePatch(todo._id)}
+                        ariaChecked={todo.isDone ? 'true' : 'false'}
+                        dataState={todo.isDone ? 'checked' : 'unchecked'}
+                      >
+                        {todo.content}
+                      </Tasks>
+                      <RedButtonDelete onClick={() => handleDelete(todo._id)}>
+                        <TrashSimple
+                          size={16}
+                          weight="fill"
+                          color={lightTheme.whiteIcon}
+                        />
+                      </RedButtonDelete>
+                    </TasksDivision>
+                  </div>
+                ))}
+            </>
           )}
-          <ParentCounterDivision>
-            {todos.length === 0 && <Card>Aucune tâche en cours</Card>}
-            <CounterDivision>
-              <Card>
-                J'ai {remainingTasks}{' '}
-                {remainingTasks > 1 ? 'tâches restantes' : 'tâche restante'}
-              </Card>
-              <Card>
-                J'ai {doneTasks > 1 ? 'terminées' : 'terminé'} {doneTasks}{' '}
-                {doneTasks > 1 ? 'tâches' : 'tâche'}
-              </Card>
-            </CounterDivision>
-          </ParentCounterDivision>
-        </Division>
+          {todos.length === 0 && <Card>Aucune tâche en cours</Card>}
+        </FullTasksDivision>
+        <CounterDivision>
+          <Card>
+            {remainingTasks}{' '}
+            {remainingTasks > 1 ? 'tâches restantes' : 'tâche restante'}
+          </Card>
+          <Card>
+            {doneTasks} {doneTasks > 1 ? 'tâches' : 'tâche'}{' '}
+            {doneTasks > 1 ? 'terminées' : 'terminé'}
+          </Card>
+        </CounterDivision>
       </ParentDivision>
     </FullContentDivision>
   );

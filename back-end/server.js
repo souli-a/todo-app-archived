@@ -5,6 +5,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/userRoutes');
 const appRoutes = require('./routes/appRoutes');
+const helmet = require('helmet');
 
 // Attach .env variables to process object in Node.js.
 require('dotenv').config();
@@ -12,16 +13,30 @@ require('dotenv').config();
 // Create the express app.
 const app = express();
 
+// For security concerns.
+app.use(helmet());
+
 // Enable CORS. These options are needed for Chrome (not Firefox).
-// TODO: change "origin" option for production.
-app.use(
-  cors({
-    origin: 'http://localhost:5173',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    allowedHeaders: ['Content-Type'],
-    credentials: true,
-  })
-);
+if (process.env.STATUS === 'dev') {
+  app.use(
+    cors({
+      origin: 'http://localhost:5173',
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+      allowedHeaders: ['Content-Type'],
+      credentials: true,
+    })
+  );
+}
+if (process.env.STATUS === 'prod') {
+  app.use(
+    cors({
+      origin: process.env.FRONT_END_URL,
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+      allowedHeaders: ['Content-Type'],
+      credentials: true,
+    })
+  );
+}
 
 // Look if there are some data and attach to req object.
 // Now I can get it with req.head for example.

@@ -10,34 +10,20 @@ import { Moon, SunDim } from '@phosphor-icons/react';
 import { lightTheme, darkTheme } from '../../styles/Themes';
 
 const Division = styled.div`
-  height: fit-content;
-  padding: 3rem 15rem 3rem 15rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  &.right-header {
-    padding: 0;
+  justify-content: space-around;
+  padding: 3rem;
+  gap: 2rem;
+  & .right-header {
     display: flex;
-    gap: 1rem;
-  }
-
-  @media (max-width: 670px) {
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-  }
-
-  @media (max-width: 370px) {
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     gap: 2rem;
-    &.right-header {
-      gap: 2rem;
+  }
+  @media (max-width: 440px) {
+    flex-direction: column;
+    padding: 2rem;
+    & .right-header {
+      flex-direction: column;
     }
   }
 `;
@@ -51,7 +37,6 @@ const Header = ({ handleTheme, theme }) => {
     setIsLoading(true);
     axios
       .get('http://localhost:4000/api/users/logout', {
-        // Allow cookies in Axios.
         withCredentials: true,
       })
       .then(() => {
@@ -70,14 +55,14 @@ const Header = ({ handleTheme, theme }) => {
       {isAuth ? (
         <>
           <Division>
-            <Division>
+            <div className="left-header">
               <Logo
                 src="../assets/images/logo.png"
                 href="/"
                 alt="logo du site web"
               />
-            </Division>
-            <Division className="right-header">
+            </div>
+            <div className="right-header">
               <RedButton onClick={handleLogout}>
                 {isLoading ? <LoadingIcon /> : 'Déconnexion'}
               </RedButton>
@@ -88,33 +73,38 @@ const Header = ({ handleTheme, theme }) => {
                   <SunDim size={18.3} weight="fill" />
                 )}
               </TransparentButton>
-            </Division>
+            </div>
           </Division>
           <HorizontalSeparator />
         </>
       ) : (
         <>
           <Division>
-            <Logo
-              src="../assets/images/logo.png"
-              href="/"
-              alt="logo du site web"
-            />
-            <Division className="right-header">
+            <div className="left-header">
+              <Logo
+                src="../assets/images/logo.png"
+                href="/"
+                alt="logo du site web"
+              />
+            </div>
+            <div className="right-header">
               <TransparentButton as="a" href="/login">
                 Connexion
               </TransparentButton>
               <BlueButton as="a" href="/signup">
                 S'inscrire
               </BlueButton>
-              <TransparentButton onClick={handleTheme}>
+              <TransparentButton
+                className="button-logout"
+                onClick={handleTheme}
+              >
                 {theme === lightTheme ? (
                   <Moon size={18.3} weight="fill" />
                 ) : (
                   <SunDim size={18.3} weight="fill" />
                 )}
               </TransparentButton>
-            </Division>
+            </div>
           </Division>
           <HorizontalSeparator />
         </>

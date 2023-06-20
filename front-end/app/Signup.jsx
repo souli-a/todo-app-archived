@@ -17,7 +17,6 @@ import PasswordInput from '../components/ui/PasswordInput';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import Header from '../components/ui/Header';
 import axios from 'axios';
 import { useContext, useState } from 'react';
 import LoadingIcon from '../components/ui/LoadingIcon';
@@ -27,6 +26,9 @@ import AuthContext from '../components/context/AuthContext';
 const FullPageDivision = styled.div`
   width: 100%;
   height: 100%;
+  @media (max-width: 440px) {
+    height: fit-content;
+  }
 `;
 
 const Division = styled.div`
@@ -36,6 +38,9 @@ const Division = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: 440px) {
+    margin-top: 3rem;
+  }
 `;
 
 const StyledSpan = styled.span`
@@ -48,12 +53,6 @@ const StyledSpan = styled.span`
   }
 `;
 
-const StyledFormRoot = styled(FormRoot)``;
-
-const StyledPasswordInput = styled(PasswordInput)``;
-
-const StyledInput = styled(Input)``;
-
 const schema = z
   .object({
     email: z
@@ -62,7 +61,7 @@ const schema = z
       .min(1, { message: 'Email obligatoire' })
       .email({ message: 'Email valide obligatoire' })
       .min(10, { message: '10 caractères au minimum' })
-      .max(40, { message: 'caractères au maximum' }),
+      .max(40, { message: '40 caractères au maximum' }),
     password: z
       .string()
       .min(1, { message: 'Mot de passe obligatoire' })
@@ -112,7 +111,6 @@ const Signup = () => {
           password: data.password,
         },
         {
-          // Allow cookies in Axios.
           withCredentials: true,
         }
       )
@@ -132,13 +130,13 @@ const Signup = () => {
   return (
     <FullPageDivision>
       <Division>
-        <StyledFormRoot onSubmit={handleSubmit(onSubmit)}>
+        <FormRoot onSubmit={handleSubmit(onSubmit)}>
           <Title2>Inscription</Title2>
 
           <FormField name="email">
             <FormLabel>Email</FormLabel>
             <FormControl>
-              <StyledInput
+              <Input
                 type="email"
                 placeholder="exemple@email.fr"
                 autoComplete="email"
@@ -162,7 +160,7 @@ const Signup = () => {
           <FormField name="password">
             <FormLabel>Mot de passe</FormLabel>
             <FormControl>
-              <StyledPasswordInput
+              <PasswordInput
                 type="password"
                 placeholder="Mot de passe"
                 autoComplete="new-password"
@@ -210,7 +208,7 @@ const Signup = () => {
               {isLoading ? <LoadingIcon /> : "S'inscrire"}
             </BigBlueButton>
           </FormSubmit>
-        </StyledFormRoot>
+        </FormRoot>
       </Division>
     </FullPageDivision>
   );

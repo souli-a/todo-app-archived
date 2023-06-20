@@ -6,7 +6,6 @@ const {
   deleteData,
   patchData,
 } = require('../controllers/appControllers');
-
 const authMiddleware = require('../middlewares/authMiddleware');
 
 // Create the express router.

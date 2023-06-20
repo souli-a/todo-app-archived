@@ -43,13 +43,14 @@ const themes = {
     roundedSeparator: '0.7rem',
     horizontalSeparator: '0.7rem',
     tag: '0.7rem',
+    redButtonDelete: '0.9rem',
   },
   padding: {
     button: '1.15rem 1.5rem',
     bigButton: '1.8rem 1.5rem',
     input: '0.9rem 1.5rem',
     todoInput: '0 10.1rem 0 1.5rem',
-    todoCheckboxRoot: '0 1.5rem 0 1.5rem',
+    todoCheckboxRoot: '0 7.5rem 0 1.5rem',
     card: '0 1.5rem 0 1.5rem',
     tag: '0.6rem',
   },
@@ -93,6 +94,9 @@ const themes = {
   },
   minHeight: {
     card: '5rem',
+  },
+  position: {
+    redButtonDelete: 'absolute',
   },
   cursor: {
     button: 'pointer',
@@ -171,9 +175,10 @@ const themes = {
     formField: '0rem',
     formLabel: '0 0 1.3rem 0',
     formFieldTerms: '0 0 -1.7rem 0',
+    redButtonDelete: '0.55rem 0 0 34.9rem',
   },
   marginTop: {
-    formRootLastChild: '3.5rem',
+    formRootLastChild: '2.8rem',
   },
   marginBottom: {
     formRootNotLastChild: '3rem',

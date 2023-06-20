@@ -11,7 +11,7 @@ const Division = styled.div`
   flex-wrap: wrap;
   gap: 1rem;
   columns: 2;
-  @media (max-width: 360px) {
+  @media (max-width: 440px) {
     display: flex;
     align-items: center;
     justify-content: center;

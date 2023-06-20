@@ -16,7 +16,7 @@ const getData = async (req, res) => {
     res.status(200).json(data);
   } catch (error) {
     // Handle any error that occurs during the process.
-    res.status(500).json({ error: 'Failed to retrieve data' });
+    res.status(401).json({ error: 'Failed to retrieve data' });
   }
 };
 
@@ -38,7 +38,7 @@ const sendData = async (req, res) => {
       content,
       isDone,
     });
-    res.status(200).json(data);
+    res.status(201).json(data);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -70,7 +70,7 @@ const deleteData = async (req, res) => {
     res.status(200).json(data);
   } catch (error) {
     // Handle any error that occurs during the process.
-    res.status(500).json({ error: 'Failed to retrieve data' });
+    res.status(401).json({ error: 'Failed to retrieve data' });
   }
 };
 
@@ -101,7 +101,7 @@ const patchData = async (req, res) => {
     res.status(200).json(data);
   } catch (error) {
     // Handle any error that occurs during the process.
-    res.status(500).json({ error: 'Failed to retrieve data' });
+    res.status(401).json({ error: 'Failed to retrieve data' });
   }
 };
 

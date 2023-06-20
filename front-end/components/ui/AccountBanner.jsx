@@ -13,7 +13,7 @@ const FullDivision = styled.div`
   color: ${({ theme }) => theme.bgColorIconAccountBanner};
   background-color: ${({ theme }) => theme.bgColorAccountBanner};
   white-space: nowrap;
-  @media (max-width: 600px) {
+  @media (max-width: 440px) {
     flex-direction: column-reverse;
     gap: 1rem;
   }
@@ -25,7 +25,7 @@ const LeftDivision = styled.div`
   justify-content: center;
   gap: 1rem;
   margin: 0 auto;
-  @media (max-width: 600px) {
+  @media (max-width: 440px) {
     flex-direction: column;
   }
 `;
@@ -46,7 +46,7 @@ const RightDivision = styled.div`
 `;
 
 const StyledInfoIcon = styled(Info)`
-  @media (max-width: 600px) {
+  @media (max-width: 670px) {
     display: none;
   }
 `;
@@ -55,8 +55,6 @@ const StyledCloseButton = styled(X)`
   cursor: pointer;
   padding: 0.1rem;
 `;
-
-const StyledParagraph = styled(Paragraph)``;
 
 const AccountBanner = () => {
   const [isDeleted, setIsDeleted] = useState(false);
@@ -72,10 +70,10 @@ const AccountBanner = () => {
   return (
     <FullDivision>
       <LeftDivision>
-        <StyledParagraph>Compte par défaut</StyledParagraph>
+        <Paragraph>Compte par défaut</Paragraph>
         <StyledInfoIcon size={20} />
         <Paragraph>exemple@email.fr</Paragraph>
-        <StyledParagraph>/</StyledParagraph>
+        <Paragraph>/</Paragraph>
         <Paragraph>123456</Paragraph>
       </LeftDivision>
       <RightDivision>

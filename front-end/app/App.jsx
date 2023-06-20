@@ -66,8 +66,6 @@ const App = () => {
     }
   }, []);
 
-  console.log('re-render');
-
   useEffect(() => {
     if (!Cookies.get('access_token')) {
       setIsAuth(false);
@@ -99,11 +97,15 @@ const App = () => {
             />
             <Route
               path="/todo"
-              element={isAuth ? <Todo /> : <Navigate to="/login" />}
+              element={isAuth ? <Todo /> : <Navigate to="/signup" />}
             />
             <Route path="/privacy" element={<PolicyPrivacy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
-            <Route path="*" element={<PageNotFound />} />
+            <Route
+              path="/notfound"
+              element={!isAuth ? <PageNotFound /> : <Navigate to="/todo" />}
+            />
+            <Route path="*" element={<Navigate to="/notfound" />} />
           </Routes>
         </AuthContext.Provider>
       </ThemeProvider>

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Title1, Title2 } from '../components/ui/Title';
 import { BigBlueButton } from '../components/ui/Button';
-import Header from '../components/ui/Header';
 import Footer from '../components/ui/Footer';
 import Bold from '../components/ui/Bold';
 import useTitlePage from '../components/hooks/useTitlePage';
@@ -30,7 +29,7 @@ const ChildDivision2 = styled.div`
     margin-top: -2rem;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 670px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,8 +38,8 @@ const ChildDivision2 = styled.div`
     margin: 15rem 0 40rem 0;
   }
 
-  @media (max-width: 370px) {
-    margin: 5rem 0 10rem 0;
+  @media (max-width: 440px) {
+    margin: 3rem 0 3rem 0;
   }
 `;
 
