@@ -76,7 +76,7 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Reset />
         <GlobalStyle />
@@ -97,7 +97,7 @@ const App = () => {
             />
             <Route
               path="/todo"
-              element={isAuth ? <Todo /> : <Navigate to="/signup" />}
+              element={isAuth ? <Todo /> : <Navigate to="/login" />}
             />
             <Route path="/privacy" element={<PolicyPrivacy />} />
             <Route path="/terms" element={<TermsAndConditions />} />

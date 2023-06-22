@@ -12,28 +12,15 @@ const createUser = async (req, res) => {
     const user = await userModels.createUser(email, password);
     const token = createToken(user._id);
     const expiryDate = new Date(Date.now() + 60 * 60 * 1000);
-    if (process.env.STATUS === 'dev') {
-      res
-        .cookie('access_token', token, {
-          expires: expiryDate,
-          sameSite: 'strict',
-        })
-        .status(201)
-        .send();
-    }
-    if (process.env.STATUS === 'prod') {
-      res
-        .cookie('access_token', token, {
-          expires: expiryDate,
-          sameSite: 'strict',
-          secure: true,
-          httpOnly: true,
-          domain: process.env.FRONT_END_URL,
-          path: '/',
-        })
-        .status(201)
-        .send();
-    }
+    res
+      .cookie('access_token', token, {
+        expires: expiryDate,
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'dev' ? false : true,
+        sameSite: 'none',
+      })
+      .status(201)
+      .send();
   } catch (error) {
     if (error.message === 'Email déjà utilisé') {
       res.status(409).json({ errorEmail: error.message });
@@ -47,33 +34,19 @@ const loginUser = async (req, res) => {
     const user = await userModels.loginUser(email, password);
     const token = createToken(user._id);
     const expiryDate = new Date(Date.now() + 60 * 60 * 1000);
-    if (process.env.STATUS === 'dev') {
-      res
-        .cookie('access_token', token, {
-          expires: expiryDate,
-          sameSite: 'strict',
-        })
-        .status(201)
-        .send();
-    }
-    if (process.env.STATUS === 'prod') {
-      res
-        .cookie('access_token', token, {
-          expires: expiryDate,
-          sameSite: 'strict',
-          secure: true,
-          httpOnly: true,
-          domain: process.env.FRONT_END_URL,
-          path: '/',
-        })
-        .status(201)
-        .send();
-    }
+    res
+      .cookie('access_token', token, {
+        expires: expiryDate,
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'dev' ? false : true,
+        sameSite: 'none',
+      })
+      .status(201)
+      .send();
   } catch (error) {
     if (error.message === 'Email inexistant') {
       res.status(404).json({ errorEmail: error.message });
     }
-
     if (error.message === 'Mot de passe incorrect') {
       res.status(401).json({ errorPassword: error.message });
     }

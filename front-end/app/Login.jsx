@@ -19,6 +19,7 @@ import AuthContext from '../components/context/AuthContext';
 import { useContext, useState, useEffect } from 'react';
 import LoadingIcon from '../components/ui/LoadingIcon';
 import AccountBanner from '../components/ui/AccountBanner';
+import CookieBanner from '../components/ui/CookieBanner';
 import useTitlePage from '../components/hooks/useTitlePage';
 
 const FullPageDivision = styled.div`
@@ -70,6 +71,16 @@ const schema = z.object({
     }),
 });
 
+let serverURL = '';
+
+if (import.meta.env.VITE_NODE_ENV === 'dev') {
+  serverURL = import.meta.env.VITE_SERVER_LOCAL_URL;
+}
+
+if (import.meta.env.VITE_NODE_ENV === 'prod') {
+  serverURL = import.meta.env.VITE_SERVER_BACK_END_URL;
+}
+
 const Login = () => {
   const {
     register,
@@ -103,7 +114,7 @@ const Login = () => {
     setIsLoading(true);
     axios
       .post(
-        'http://localhost:4000/api/users/login',
+        `${serverURL}/api/users/login`,
         {
           email: data.email,
           password: data.password,
@@ -119,7 +130,6 @@ const Login = () => {
         if (error.response.data.errorEmail) {
           setEmailError(error.response.data.errorEmail);
         }
-
         if (error.response.data.errorPassword) {
           setPasswordError(error.response.data.errorPassword);
         }
@@ -132,6 +142,7 @@ const Login = () => {
   return (
     <FullPageDivision>
       <AccountBanner />
+      <CookieBanner />
       <Division>
         <FormRoot onSubmit={handleSubmit(onSubmit)}>
           <Title2>Connexion</Title2>

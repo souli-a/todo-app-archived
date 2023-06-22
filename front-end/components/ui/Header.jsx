@@ -8,7 +8,7 @@ import { useContext, useState } from 'react';
 import LoadingIcon from '../../components/ui/LoadingIcon';
 import { Moon, SunDim } from '@phosphor-icons/react';
 import { lightTheme, darkTheme } from '../../styles/Themes';
-import logo from '../../assets/images/logo.png';
+import websiteLogo from '../../public/images/logo.png';
 
 const Division = styled.div`
   display: flex;
@@ -29,6 +29,16 @@ const Division = styled.div`
   }
 `;
 
+let serverURL = '';
+
+if (import.meta.env.VITE_NODE_ENV === 'dev') {
+  serverURL = import.meta.env.VITE_SERVER_LOCAL_URL;
+}
+
+if (import.meta.env.VITE_NODE_ENV === 'prod') {
+  serverURL = import.meta.env.VITE_SERVER_BACK_END_URL;
+}
+
 const Header = ({ handleTheme, theme }) => {
   const { isAuth, setIsAuth } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +47,7 @@ const Header = ({ handleTheme, theme }) => {
     e.preventDefault();
     setIsLoading(true);
     axios
-      .get('http://localhost:4000/api/users/logout', {
+      .get(`${serverURL}/api/users/logout`, {
         withCredentials: true,
       })
       .then(() => {
@@ -57,7 +67,7 @@ const Header = ({ handleTheme, theme }) => {
         <>
           <Division>
             <div className="left-header">
-              <Logo src={logo} href="/" alt="logo du site web" />
+              <Logo src={websiteLogo} href="/" alt="logo du site web" />
             </div>
             <div className="right-header">
               <RedButton onClick={handleLogout}>
@@ -78,11 +88,7 @@ const Header = ({ handleTheme, theme }) => {
         <>
           <Division>
             <div className="left-header">
-              <Logo
-                src="../assets/images/logo.png"
-                href="/"
-                alt="logo du site web"
-              />
+              <Logo src={websiteLogo} href="/" alt="logo du site web" />
             </div>
             <div className="right-header">
               <TransparentButton as="a" href="/login">

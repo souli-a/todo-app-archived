@@ -86,6 +86,16 @@ const schema = z
     path: ['confirmPassword'],
   });
 
+let serverURL = '';
+
+if (import.meta.env.VITE_NODE_ENV === 'dev') {
+  serverURL = import.meta.env.VITE_SERVER_LOCAL_URL;
+}
+
+if (import.meta.env.VITE_NODE_ENV === 'prod') {
+  serverURL = import.meta.env.VITE_SERVER_BACK_END_URL;
+}
+
 const Signup = () => {
   const {
     register,
@@ -102,10 +112,9 @@ const Signup = () => {
   const onSubmit = (data, e) => {
     e.preventDefault();
     setIsLoading(true);
-    // Exclude confirmPassword field from the data.
     axios
       .post(
-        'http://localhost:4000/api/users/signup',
+        `${serverURL}/api/users/signup`,
         {
           email: data.email,
           password: data.password,

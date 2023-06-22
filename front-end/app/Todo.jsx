@@ -88,6 +88,16 @@ const Tasks = ({ children, onClick, dataState, ariaChecked }) => {
   );
 };
 
+let serverURL = '';
+
+if (import.meta.env.VITE_NODE_ENV === 'dev') {
+  serverURL = import.meta.env.VITE_SERVER_LOCAL_URL;
+}
+
+if (import.meta.env.VITE_NODE_ENV === 'prod') {
+  serverURL = import.meta.env.VITE_SERVER_BACK_END_URL;
+}
+
 const Todo = () => {
   const inputRef = useRef();
   const [todos, setTodos] = useState([]);
@@ -108,7 +118,7 @@ const Todo = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:4000/api/todos', {
+      .get(`${serverURL}/api/todos`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -147,7 +157,7 @@ const Todo = () => {
     if (inputValue !== '') {
       axios
         .post(
-          'http://localhost:4000/api/todos',
+          `${serverURL}/api/todos`,
           {
             content: inputValue,
             isDone: false,
@@ -169,7 +179,7 @@ const Todo = () => {
 
   const handleDelete = (_id) => {
     axios
-      .delete(`http://localhost:4000/api/todos/${_id}`, {
+      .delete(`${serverURL}/api/todos/${_id}`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -189,7 +199,7 @@ const Todo = () => {
 
     axios
       .patch(
-        `http://localhost:4000/api/todos/${_id}`,
+        `${serverURL}/api/todos/${_id}`,
         { isDone: todos[index].isDone },
         {
           withCredentials: true,

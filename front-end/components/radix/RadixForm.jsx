@@ -14,10 +14,15 @@ const StyledFormRoot = styled(Form.Root)`
   & > *:not(:nth-last-child(2)) {
     margin-bottom: ${themes.marginBottom.formRootNotLastChild};
   }
+  & > :nth-last-child(2) {
+    @media (max-width: 440px) {
+      margin-top: 0.45rem;
+    }
+  }
   & > *:last-child {
     margin-top: ${themes.marginTop.formRootLastChild};
     @media (max-width: 440px) {
-      margin-top: 3rem;
+      margin-top: 3.5rem;
     }
   }
   @media (max-width: 670px) {

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Paragraph from './Paragraph';
 import { styled } from 'styled-components';
 import { Info, X } from '@phosphor-icons/react';
+import { HorizontalSeparator } from '../radix/RadixSeparator';
 
 const FullDivision = styled.div`
   display: flex;
@@ -56,7 +57,7 @@ const StyledCloseButton = styled(X)`
   padding: 0.1rem;
 `;
 
-const AccountBanner = () => {
+const CookieBanner = () => {
   const [isDeleted, setIsDeleted] = useState(false);
 
   const handleDelete = () => {
@@ -68,19 +69,22 @@ const AccountBanner = () => {
   }
 
   return (
-    <FullDivision>
-      <LeftDivision>
-        <Paragraph>Compte par défaut</Paragraph>
-        <StyledInfoIcon size={20} />
-        <Paragraph>exemple@email.fr</Paragraph>
-        <Paragraph>-</Paragraph>
-        <Paragraph>123456</Paragraph>
-      </LeftDivision>
-      <RightDivision>
-        <StyledCloseButton size={20} onClick={handleDelete} />
-      </RightDivision>
-    </FullDivision>
+    <>
+      <HorizontalSeparator />
+      <FullDivision>
+        <LeftDivision>
+          <StyledInfoIcon size={20} />
+          <Paragraph>
+            L'option "Bloquer les cookies tiers" activée sur votre navigateur
+            empêche l'authentification!
+          </Paragraph>
+        </LeftDivision>
+        <RightDivision>
+          <StyledCloseButton size={20} onClick={handleDelete} />
+        </RightDivision>
+      </FullDivision>
+    </>
   );
 };
 
-export default AccountBanner;
+export default CookieBanner;

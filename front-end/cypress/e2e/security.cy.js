@@ -1,3 +1,13 @@
+let serverURL;
+
+if (process.env.NODE_ENV === 'dev') {
+  serverURL = process.env.SERVER_LOCAL_URL;
+}
+
+if (process.env.NODE_ENV === 'prod') {
+  serverURL = process.env.SERVER_BACK_END_URL;
+}
+
 describe('test security options from server response', () => {
   it('should have the expected cookie option set', () => {
     cy.visit('/login');
@@ -5,9 +15,7 @@ describe('test security options from server response', () => {
     cy.get('.sc-lfxVRD').type('exemple@email.fr');
     cy.get('.sc-aklqw').type('123456');
 
-    cy.intercept('POST', 'http://localhost:4000/api/users/login').as(
-      'waitToConnect'
-    );
+    cy.intercept('POST', `${serverURL}/api/users/login`).as('waitToConnect');
 
     cy.get('.sc-laEPQd').click();
 
@@ -28,7 +36,7 @@ describe('test security options from server response', () => {
 
     cy.get('.sc-laEPQd').click();
 
-    cy.intercept('GET', 'http://localhost:4000/api/todos').as('headers');
+    cy.intercept('GET', `${serverURL}/api/todos`).as('headers');
 
     cy.wait('@headers').then(({ response }) => {
       const headers = response.headers;
@@ -71,7 +79,7 @@ describe('test security options from server response', () => {
       );
       expect(headers).to.have.property(
         'access-control-allow-origin',
-        'http://localhost:5173'
+        process.env.LOCAL_URL
       );
     });
   });

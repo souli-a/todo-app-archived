@@ -13,30 +13,25 @@ require('dotenv').config();
 // Create the express app.
 const app = express();
 
+// Use this for secure: true (cookie).
+if (process.env.NODE_ENV === 'prod') {
+  app.set('trust proxy', 1);
+}
+
+// Needed for Chrome.
+app.use(
+  cors({
+    origin: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  })
+);
+
+app.options('*', cors());
+
 // For security concerns.
 app.use(helmet());
-
-// Enable CORS. These options are needed for Chrome (not Firefox).
-if (process.env.STATUS === 'dev') {
-  app.use(
-    cors({
-      origin: 'http://localhost:5173',
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-      allowedHeaders: ['Content-Type'],
-      credentials: true,
-    })
-  );
-}
-if (process.env.STATUS === 'prod') {
-  app.use(
-    cors({
-      origin: process.env.FRONT_END_URL,
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-      allowedHeaders: ['Content-Type'],
-      credentials: true,
-    })
-  );
-}
 
 // Look if there are some data and attach to req object.
 // Now I can get it with req.head for example.
