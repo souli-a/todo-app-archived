@@ -6,6 +6,7 @@ const StyledParagraph = styled.p`
   color: ${({ theme }) => theme.colorParagraph};
   letter-spacing: ${themes.letterSpacing.paragraph};
   line-height: ${themes.lineHeight.paragraph};
+  word-wrap: break-word;
 `;
 
 const Paragraph = ({ children }) => {

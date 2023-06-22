@@ -11,9 +11,13 @@ const FullDivision = styled.div`
   flex-wrap: wrap;
   height: fit-content;
   padding: 1.5rem 1rem 1.5rem 1rem;
+  text-align: center;
   color: ${({ theme }) => theme.bgColorIconAccountBanner};
   background-color: ${({ theme }) => theme.bgColorAccountBanner};
-  white-space: nowrap;
+  @media (max-width: 790px) {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
   @media (max-width: 440px) {
     flex-direction: column-reverse;
     gap: 1rem;
@@ -47,7 +51,7 @@ const RightDivision = styled.div`
 `;
 
 const StyledInfoIcon = styled(Info)`
-  @media (max-width: 440px) {
+  @media (max-width: 790px) {
     display: none;
   }
 `;
