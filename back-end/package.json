@@ -2,14 +2,11 @@
   "name": "todo-app-back-end",
   "private": true,
   "version": "0.0.0",
-  "description": "",
+  "license": "MIT",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
