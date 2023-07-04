@@ -1,5 +1,11 @@
+# Important
+
+**Note**: HTTP requests may be slower than usual due to the free plan of [Render](https://render.com), where my Express server is hosted. The performance of the React project is not involved.
+
 # Table of contents
 
+- [Important](#important)
+- [Table of contents](#table-of-contents)
 - [What is Listify](#what-is-listify)
 - [Technologies used](#technologies-used)
   - [Front-end](#front-end)
@@ -21,8 +27,6 @@ Listify is a minimalist todo application that offers the following features:
 - Task completion tracking.
 - Task deletion.
 - User registration and login system.
-
-**Note**: HTTP requests may be slower than usual due to the free plan of [Render](https://render.com), where my Express server is hosted. The performance of the React project is not involved.
 
 # Technologies used
 
